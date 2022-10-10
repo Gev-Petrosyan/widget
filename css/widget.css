@@ -522,6 +522,7 @@
         right: 0;
     }
     .widget .widget-tabs {
+        min-height: 2500px !important;
         right: 0 !important;
         top: 0 !important;
         bottom: auto !important;
