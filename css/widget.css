@@ -4,8 +4,13 @@
     box-sizing: border-box;
 }
 
+.scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 .scroll_hidden::-webkit-scrollbar {
-    width: 0;
+    display: none;
 }
 
 .widget {
@@ -55,10 +60,17 @@
 
 .widget .widget-tabs {
     display: none;
-    border-radius: 50px;
+    border-radius: 8px;
     position: fixed;
     right: 0;
     bottom: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: hidden;
+}
+
+.widget .widget-tabs::-webkit-scrollbar {
+    display: none;
 }
 
 .widget .widget-tabs .widget-tab_index {
@@ -522,6 +534,7 @@
         right: 0;
     }
     .widget .widget-tabs {
+        border-radius: 0 !important;
         min-height: 2500px !important;
         right: 0 !important;
         top: 0 !important;
