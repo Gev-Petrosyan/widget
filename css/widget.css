@@ -1682,7 +1682,7 @@
     min-height: 330px;
     max-height: 330px;
     margin-bottom: 10px;
-    overflow: hidden scroll;
+    overflow-y: scroll;
 }
 
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager::-webkit-scrollbar {
