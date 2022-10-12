@@ -4,6 +4,8 @@ let widget_open_button = document.getElementById("widget-open_button")
 let widget_openTab = false
 let widgetTabs = document.getElementById("widget-tabs")
 
+let windowWidth = window.innerWidth
+let windowHeight = window.innerHeight
 
 function open_button() {
     if (widget_openTab) {
@@ -11,21 +13,15 @@ function open_button() {
         widgetTabs.style.display = "none"
         widget_openTab = false
 
-        if (window.innerWidth >= 500) {
-            document.body.classList.remove('scroll_hidden')
-        } else {
-            document.body.style.overflow = "auto"
-        }
+        document.body.classList.remove('scroll_hidden')
+        document.body.style.overflow = "auto"
     } else {
         widget_open_button.style.display = "none"
         widgetTabs.style.display = "flex"
         widget_openTab = true
         
-        if (window.innerWidth >= 500) {
-            document.body.classList.add('scroll_hidden')
-        } else {
-            document.body.style.overflow = "hidden"
-        }
+        document.body.classList.add('scroll_hidden')
+        document.body.style.overflow = "hidden"
     }
 }
 
@@ -177,6 +173,7 @@ $online_chat_form.addEventListener("submit", function (e) {
 
 
 widgetTabs.addEventListener("mouseenter", function() {
+    document.body.classList.add('scroll_hidden')
     document.body.style.overflow = "hidden"
 })
 
@@ -184,14 +181,3 @@ widgetTabs.addEventListener("mouseleave", function() {
     document.body.style.overflow = "auto"
 })
 
-widgetTabs.addEventListener("touchstart", function() {
-    document.body.style.overflow = "hidden"
-})
-
-widgetTabs.addEventListener("touchend", function() {
-    document.body.style.overflow = "auto"
-})
-
-widgetTabs.addEventListener("touchcancel", function() {
-    document.body.style.overflow = "auto"
-})
