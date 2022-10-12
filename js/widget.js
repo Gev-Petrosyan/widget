@@ -177,15 +177,21 @@ $online_chat_form.addEventListener("submit", function (e) {
 
 
 widgetTabs.addEventListener("mouseenter", function() {
-    if (window.innerWidth >= 500) {
-        document.body.style.overflow = "hidden"
-    }
+    document.body.style.overflow = "hidden"
 })
 
 widgetTabs.addEventListener("mouseleave", function() {
-    if (window.innerWidth >= 500) {
-        document.body.style.overflow = "auto"
-    }
+    document.body.style.overflow = "auto"
 })
 
+widgetTabs.addEventListener("touchstart", function() {
+    document.body.style.overflow = "hidden"
+})
 
+widgetTabs.addEventListener("touchend", function() {
+    document.body.style.overflow = "auto"
+})
+
+widgetTabs.addEventListener("touchcancel", function() {
+    document.body.style.overflow = "auto"
+})

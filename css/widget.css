@@ -7,6 +7,7 @@
 .scrollbar-hidden {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    /* overflow: hidden; */
 }
 
 .scroll_hidden::-webkit-scrollbar {
@@ -76,7 +77,6 @@
 .widget .widget-tabs .widget-tab_index {
     width: 408px;
     height: 561px;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.11);
     background: url("../images/base.jpg"), #FFFFFF;
     background-blend-mode: multiply, normal;
     border-radius: 30px;
@@ -87,8 +87,8 @@
     justify-content: space-between;
     align-items: center;
     background: #EAF2FF;
-    border-radius: 8px 8px 0 0;
-    padding: 14px 12px;
+    border-radius: 30px 30px 0 0;
+    padding: 14px 18px;
 }
 
 .widget .widget-tabs .widget-tab-header_lang {
@@ -191,7 +191,6 @@
     width: 408px;
     height: 561px;
     background: #FFFFFF;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.11);
     border-radius: 30px;
 }
 
@@ -309,7 +308,6 @@
     width: 408px;
     height: 561px;
     background: #FFFFFF;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.11);
     border-radius: 30px;
 }
 
@@ -488,7 +486,6 @@
     width: 408px;
     height: 561px;
     background: #FFFFFF;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.11);
     border-radius: 30px;
 }
 
@@ -527,6 +524,67 @@
 
 /* medias */
 
+@media (max-height: 570px) {
+    .widget-tab_index {
+        height: 100vh !important;
+    }
+    .widget-tab_oreder_apply {
+        height: 100vh !important;
+    }
+    .widget-tab_online_chat {
+        height: 100vh !important;
+    }
+    .widget-tab_yandex-map {
+        height: 100vh !important;
+    }
+}
+
+@media (max-height: 525px) {
+    .widget-tab_oreder_apply-body {
+        overflow-y: scroll;
+        height: 87vh;
+    }
+    .widget-tab_yandex_map-body {
+        overflow-y: scroll;
+        height: 88vh;
+    }
+}
+
+@media (max-height: 480px) {
+    .widget-tab_oreder_apply-body {
+        height: 85vh;
+    }
+}
+
+@media (max-height: 430px) {
+    .widget-tab_yandex_map-body {
+        height: 86vh;
+    }
+}
+
+@media (max-height: 390px) {
+    .widget-tab_oreder_apply-body {
+        height: 82vh;
+    }
+}
+
+@media (max-height: 350px) {
+    .widget-tab_yandex_map-body {
+        height: 84vh;
+    }
+}
+
+@media (max-height: 330px) {
+    .widget-tab_oreder_apply-body {
+        height: 80vh;
+    }
+}
+
+@media (max-height: 290px) {
+    .widget-tab_oreder_apply-body {
+        height: 78vh;
+    }
+}
 
 @media only screen and (max-width: 500px) {
     .widget {
@@ -737,27 +795,26 @@
     }
     @media only screen and (max-height: 440px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 175px;
-            max-height: 175px;
+            min-height: 175px !important;
+            max-height: 175px !important;
         }
     }
     @media only screen and (max-height: 415px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 150px;
-            max-height: 150px;
+            min-height: 150px !important;
+            max-height: 150px !important;
         }
     }
-
-    @media only screen and (max-height: 490px) {
+    @media only screen and (max-height: 390px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 200px;
-            max-height: 200px;
+            min-height: 125px !important;
+            max-height: 125px !important;
         }
-        .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
-            overflow-y: scroll;
-        }
-        .widget .widget-tabs .widget-tab_index .widget-tab_index-body .widget-tab_index-body_item {
-            margin-bottom: 10px;
+    }
+    @media only screen and (max-height: 365px) {
+        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+            min-height: 100px !important;
+            max-height: 100px !important;
         }
     }
 
@@ -795,6 +852,24 @@
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 10px 20px;
         }
+    }
+    @media only screen and (max-height: 470px) {
+        .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
+            padding: 25px 20px !important;
+        }
+    }
+}
+
+@media only screen and (max-height: 490px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 200px;
+        max-height: 200px;
+    }
+    .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
+        overflow-y: scroll;
+    }
+    .widget .widget-tabs .widget-tab_index .widget-tab_index-body .widget-tab_index-body_item {
+        margin-bottom: 10px;
     }
 }
 
