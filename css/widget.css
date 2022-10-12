@@ -61,10 +61,11 @@
 
 .widget .widget-tabs {
     display: none;
-    border-radius: 8px;
+    border-radius: 30px;
     position: fixed;
     right: 0;
     bottom: 0;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.11);
     -ms-overflow-style: none;
     scrollbar-width: none;
     overflow: hidden;
@@ -525,6 +526,14 @@
 /* medias */
 
 @media (max-height: 570px) {
+    .widget .widget-tabs {
+        border-radius: 0 !important;
+        min-height: 2500px !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: auto !important;
+        width: 100%;
+    }
     .widget-tab_index {
         height: 100vh !important;
     }
