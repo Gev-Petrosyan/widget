@@ -527,12 +527,9 @@
 
 @media (max-height: 570px) {
     .widget .widget-tabs {
-        border-radius: 0 !important;
-        min-height: 2500px !important;
         right: 0 !important;
         top: 0 !important;
         bottom: auto !important;
-        width: 100%;
     }
     .widget-tab_index {
         height: 100vh !important;
@@ -651,221 +648,221 @@
     .widget-tab_yandex-map .widget-tab_yandex_map-body iframe {
         min-height: 60vh;
     }
+}
 
-    @media only screen and (min-height: 1040px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 800px;
-            max-height: 800px;
-        }
+@media only screen and (min-height: 1040px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 800px;
+        max-height: 800px;
     }
-    @media only screen and (max-height: 1040px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 775px;
-            max-height: 775px;
-        }
+}
+@media only screen and (max-height: 1040px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 775px;
+        max-height: 775px;
     }
-    @media only screen and (max-height: 1015px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 750px;
-            max-height: 750px;
-        }
+}
+@media only screen and (max-height: 1015px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 750px;
+        max-height: 750px;
     }
-    @media only screen and (max-height: 990px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 725px;
-            max-height: 725px;
-        }
+}
+@media only screen and (max-height: 990px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 725px;
+        max-height: 725px;
     }
-    @media only screen and (max-height: 965px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 700px;
-            max-height: 700px;
-        }
+}
+@media only screen and (max-height: 965px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 700px;
+        max-height: 700px;
     }
-    @media only screen and (max-height: 940px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 675px;
-            max-height: 675px;
-        }
+}
+@media only screen and (max-height: 940px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 675px;
+        max-height: 675px;
     }
-    @media only screen and (max-height: 915px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 650px;
-            max-height: 650px;
-        }
+}
+@media only screen and (max-height: 915px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 650px;
+        max-height: 650px;
     }
-    @media only screen and (max-height: 890px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 625px;
-            max-height: 625px;
-        }
+}
+@media only screen and (max-height: 890px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 625px;
+        max-height: 625px;
     }
-    @media only screen and (max-height: 865px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 600px;
-            max-height: 600px;
-        }
+}
+@media only screen and (max-height: 865px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 600px;
+        max-height: 600px;
     }
-    @media only screen and (max-height: 840px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 575px;
-            max-height: 575px;
-        }
+}
+@media only screen and (max-height: 840px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 575px;
+        max-height: 575px;
     }
-    @media only screen and (max-height: 815px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 550px;
-            max-height: 550px;
-        }
+}
+@media only screen and (max-height: 815px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 550px;
+        max-height: 550px;
     }
-    @media only screen and (max-height: 790px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 525px;
-            max-height: 525px;
-        }
+}
+@media only screen and (max-height: 790px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 525px;
+        max-height: 525px;
     }
-    @media only screen and (max-height: 765px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 500px;
-            max-height: 500px;
-        }
+}
+@media only screen and (max-height: 765px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 500px;
+        max-height: 500px;
     }
-    @media only screen and (max-height: 740px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 475px;
-            max-height: 475px;
-        }
+}
+@media only screen and (max-height: 740px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 475px;
+        max-height: 475px;
     }
-    @media only screen and (max-height: 715px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 450px;
-            max-height: 450px;
-        }
+}
+@media only screen and (max-height: 715px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 450px;
+        max-height: 450px;
     }
-    @media only screen and (max-height: 690px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 425px;
-            max-height: 425px;
-        }
+}
+@media only screen and (max-height: 690px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 425px;
+        max-height: 425px;
     }
-    @media only screen and (max-height: 665px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 400px;
-            max-height: 400px;
-        }
+}
+@media only screen and (max-height: 665px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 400px;
+        max-height: 400px;
     }
-    @media only screen and (max-height: 640px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 375px;
-            max-height: 375px;
-        }
+}
+@media only screen and (max-height: 640px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 375px;
+        max-height: 375px;
     }
-    @media only screen and (max-height: 615px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 350px;
-            max-height: 350px;
-        }
+}
+@media only screen and (max-height: 615px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 350px;
+        max-height: 350px;
     }
-    @media only screen and (max-height: 590px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 325px;
-            max-height: 325px;
-        }
+}
+@media only screen and (max-height: 590px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 325px;
+        max-height: 325px;
     }
-    @media only screen and (max-height: 565px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 300px;
-            max-height: 300px;
-        }
+}
+@media only screen and (max-height: 565px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 300px;
+        max-height: 300px;
     }
-    @media only screen and (max-height: 540px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 275px;
-            max-height: 275px;
-        }
+}
+@media only screen and (max-height: 540px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 275px;
+        max-height: 275px;
     }
-    @media only screen and (max-height: 515px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 250px;
-            max-height: 250px;
-        }
+}
+@media only screen and (max-height: 515px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 250px;
+        max-height: 250px;
     }
-    @media only screen and (max-height: 490px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 225px;
-            max-height: 225px;
-        }
+}
+@media only screen and (max-height: 490px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 225px;
+        max-height: 225px;
     }
-    @media only screen and (max-height: 465px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 200px;
-            max-height: 200px;
-        }
+}
+@media only screen and (max-height: 465px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 200px;
+        max-height: 200px;
     }
-    @media only screen and (max-height: 440px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 175px !important;
-            max-height: 175px !important;
-        }
+}
+@media only screen and (max-height: 440px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 175px !important;
+        max-height: 175px !important;
     }
-    @media only screen and (max-height: 415px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 150px !important;
-            max-height: 150px !important;
-        }
+}
+@media only screen and (max-height: 415px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 150px !important;
+        max-height: 150px !important;
     }
-    @media only screen and (max-height: 390px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 125px !important;
-            max-height: 125px !important;
-        }
+}
+@media only screen and (max-height: 390px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 125px !important;
+        max-height: 125px !important;
     }
-    @media only screen and (max-height: 365px) {
-        .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
-            min-height: 100px !important;
-            max-height: 100px !important;
-        }
+}
+@media only screen and (max-height: 365px) {
+    .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+        min-height: 100px !important;
+        max-height: 100px !important;
     }
+}
 
-    @media only screen and (min-height: 1000px) {
-        .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
-            padding: 180px 20px;
-        }
+@media only screen and (min-height: 1000px) {
+    .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
+        padding: 180px 20px;
     }
-    @media only screen and (max-height: 1000px) {
-        .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
-            padding: 150px 20px;
-        }
+}
+@media only screen and (max-height: 1000px) {
+    .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
+        padding: 150px 20px;
     }
-    @media only screen and (max-height: 950px) {
-        .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
-            padding: 120px 20px;
-        }
+}
+@media only screen and (max-height: 950px) {
+    .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
+        padding: 120px 20px;
     }
-    @media only screen and (max-height: 850px) {
-        .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
-            padding: 90px 20px;
-        }
+}
+@media only screen and (max-height: 850px) {
+    .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
+        padding: 90px 20px;
     }
-    @media only screen and (max-height: 750px) {
-        .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
-            padding: 60px 20px;
-        }
+}
+@media only screen and (max-height: 750px) {
+    .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
+        padding: 60px 20px;
     }
-    @media only screen and (max-height: 650px) {
-        .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
-            padding: 30px 20px;
-        }
+}
+@media only screen and (max-height: 650px) {
+    .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
+        padding: 30px 20px;
     }
-    @media only screen and (max-height: 550px) {
-        .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
-            padding: 10px 20px;
-        }
+}
+@media only screen and (max-height: 550px) {
+    .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
+        padding: 10px 20px;
     }
-    @media only screen and (max-height: 470px) {
-        .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
-            padding: 25px 20px !important;
-        }
+}
+@media only screen and (max-height: 470px) {
+    .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
+        padding: 25px 20px !important;
     }
 }
 
