@@ -7,7 +7,16 @@ let widgetTabs = document.getElementById("widget-tabs")
 let windowWidth = window.innerWidth
 let windowHeight = window.innerHeight
 
+let widget_warning_message = document.getElementById("widget-warning_message")
+
 function open_button() {
+    let orientation = window.matchMedia("(orientation: landscape)").matches
+
+    if (windowHeight <= 570 && orientation) {
+        widget_warning_message.style.display = "flex"
+        return
+    }
+
     if (widget_openTab) {
         widget_open_button.style.display = "flex"
         widgetTabs.style.display = "none"
@@ -178,6 +187,15 @@ widgetTabs.addEventListener("mouseenter", function() {
 })
 
 widgetTabs.addEventListener("mouseleave", function() {
+    document.body.style.overflow = "auto"
+})
+
+// ------------------------------
+
+let widget_warning_close_button = document.getElementById("widget-warning_close-button")
+
+widget_warning_close_button.addEventListener("click", function() {
+    widget_warning_message.style.display = "none"
     document.body.style.overflow = "auto"
 })
 

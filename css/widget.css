@@ -1264,11 +1264,18 @@
     top: 0;
     right: 0;
     background-color: black;
-    opacity: 0.9;
+    opacity: 0.92;
     z-index: 999999999999999;
+    -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
 }
 
 #widget-warning_message .widget-warning_block {
+    min-width: 100%;
     display: inline;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -1299,34 +1306,43 @@
     font-size: 30px;
 }
 
-@media (max-height: 570px) {
-    @media only screen and (orientation: landscape) {
-        #widget-warning_message {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
-        }
-    
-        body {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            overflow-y: hidden;
-        }
-        
-        body::-webkit-scrollbar {
-            display: none;
-        }
+@media only screen and (orientation: landscape){
+    #widget-warning_message { 
+        display: none; 
+    }
+
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow-y: hidden;
     }
     
-    @media only screen and (orientation: portrait) {
-        #widget-warning_message { 
-            display: none;
-        }
+    body::-webkit-scrollbar {
+        display: none;
     }
 }
+
+#widget-warning_message .widget-warning_close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#widget-warning_message .widget-warning_close button {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#widget-warning_message .widget-warning_close button img {
+    width: 100%;
+}
+
