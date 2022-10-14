@@ -1294,26 +1294,39 @@
 }
 
 #widget-warning_message .widget-warning_block p {
+    text-align: center;
     color: #FFFFFF;
     font-size: 30px;
 }
 
-@media only screen and (orientation: portrait){
-    #widget-warning_message {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+@media (max-height: 570px) {
+    @media only screen and (orientation: landscape) {
+        #widget-warning_message {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+        }
+    
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            overflow-y: hidden;
+        }
+        
+        body::-webkit-scrollbar {
+            display: none;
+        }
     }
-}
-
-@media only screen and (orientation: landscape){
-    #widget-warning_message { 
-        display: none; 
+    
+    @media only screen and (orientation: portrait) {
+        #widget-warning_message { 
+            display: none;
+        }
     }
 }
