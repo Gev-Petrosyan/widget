@@ -200,3 +200,21 @@ widget_warning_close_button.addEventListener("click", function() {
     document.body.style.overflow = "auto"
 })
 
+setInterval(function(){
+
+    let orientation = window.matchMedia("(orientation: landscape)").matches
+
+    if (widget_openTab && window.innerHeight <= 570 && orientation) {
+        widget_warning_message.style.display = "flex"
+        document.body.style.overflow = "hidden"
+        widget_openTab = false
+
+        widgetTabs.style.display = "none"
+        widget_open_button.style.display = "flex"
+        document.body.classList.remove('scroll_hidden')
+        document.body.style.overflow = "hidden"
+    }
+
+}, 2000)
+
+

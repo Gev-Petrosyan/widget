@@ -1303,20 +1303,27 @@
 #widget-warning_message .widget-warning_block p {
     text-align: center;
     color: #FFFFFF;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 @media only screen and (orientation: portrait) {
-    #widget-warning_message { 
-        display: none; 
-    }
     .widget .widget-tabs {
-        display: block;
+        display: none;
     }
 }
 
 @media only screen and (orientation: landscape){
-    .widget .widget-tabs {
+    #widget-warning_message { 
+        display: none; 
+    }
+
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow-y: hidden;
+    }
+    
+    body::-webkit-scrollbar {
         display: none;
     }
 }
