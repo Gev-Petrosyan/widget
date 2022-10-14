@@ -12,8 +12,9 @@ let widget_warning_message = document.getElementById("widget-warning_message")
 function open_button() {
     let orientation = window.matchMedia("(orientation: landscape)").matches
 
-    if (windowHeight <= 570 && orientation) {
+    if (window.innerHeight <= 570 && orientation) {
         widget_warning_message.style.display = "flex"
+        document.body.style.overflow = "hidden"
         return
     }
 

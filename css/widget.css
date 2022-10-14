@@ -1307,23 +1307,13 @@
 }
 
 @media only screen and (orientation: portrait) {
-    .widget .widget-tabs {
-        display: none;
+    #widget-warning_message { 
+        display: none; 
     }
 }
 
 @media only screen and (orientation: landscape){
-    #widget-warning_message { 
-        display: none; 
-    }
-
-    body {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        overflow-y: hidden;
-    }
-    
-    body::-webkit-scrollbar {
+    .widget .widget-tabs {
         display: none;
     }
 }
