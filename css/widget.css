@@ -6,13 +6,13 @@
 }
 
 .scroll_hidden {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-y: hidden;
+    /* -ms-overflow-style: none; */
+    /* scrollbar-width: none; */
+    /* overflow-y: hidden; */
 }
 
 .scroll_hidden::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
 }
 
 .widget {
@@ -326,7 +326,7 @@
     color: #FFFFFF;
     font-size: 16px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .widget-tab_oreder_apply-body_status {
@@ -614,7 +614,7 @@
             align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: space-between;
+            justify-content: left;
     padding: 7.5px 10px;
     background: #FFFFFF;
     border: 1px solid #D6D8E6;
@@ -641,8 +641,8 @@
     font-size: 12px;
     line-height: 15px;
     color: #6E7191;
-    float: right;
-    max-width: 90%;
+    margin-left: 15px;
+    word-break: break-word;
 }
 
 
@@ -1315,16 +1315,6 @@
 @media only screen and (orientation: landscape){
     #widget-warning_message { 
         display: none; 
-    }
-
-    body {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        overflow-y: hidden;
-    }
-    
-    body::-webkit-scrollbar {
-        display: none;
     }
 }
 

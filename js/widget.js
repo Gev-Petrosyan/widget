@@ -14,7 +14,7 @@ function open_button() {
 
     if (window.innerHeight <= 570 && orientation) {
         widget_warning_message.style.display = "flex"
-        document.body.style.overflow = "hidden"
+        // document.body.style.overflow = "hidden"
         return
     }
 
@@ -24,14 +24,14 @@ function open_button() {
         widget_openTab = false
 
         document.body.classList.remove('scroll_hidden')
-        document.body.style.overflow = "auto"
+        // document.body.style.overflow = "auto"
     } else {
         widget_open_button.style.display = "none"
         widgetTabs.style.display = "flex"
         widget_openTab = true
         
         document.body.classList.add('scroll_hidden')
-        document.body.style.overflow = "hidden"
+        // document.body.style.overflow = "hidden"
     }
 }
 
@@ -184,11 +184,11 @@ $online_chat_form.addEventListener("submit", function (e) {
 
 widgetTabs.addEventListener("mouseenter", function() {
     document.body.classList.add('scroll_hidden')
-    document.body.style.overflow = "hidden"
+    // document.body.style.overflow = "hidden"
 })
 
 widgetTabs.addEventListener("mouseleave", function() {
-    document.body.style.overflow = "auto"
+    // document.body.style.overflow = "auto"
 })
 
 // ------------------------------
@@ -197,7 +197,7 @@ let widget_warning_close_button = document.getElementById("widget-warning_close-
 
 widget_warning_close_button.addEventListener("click", function() {
     widget_warning_message.style.display = "none"
-    document.body.style.overflow = "auto"
+    // document.body.style.overflow = "auto"
 })
 
 setInterval(function(){
@@ -206,13 +206,13 @@ setInterval(function(){
 
     if (widget_openTab && window.innerHeight <= 570 && orientation) {
         widget_warning_message.style.display = "flex"
-        document.body.style.overflow = "hidden"
+        // document.body.style.overflow = "hidden"
         widget_openTab = false
 
         widgetTabs.style.display = "none"
         widget_open_button.style.display = "flex"
         document.body.classList.remove('scroll_hidden')
-        document.body.style.overflow = "hidden"
+        // document.body.style.overflow = "hidden"
     }
 
 }, 2000)
