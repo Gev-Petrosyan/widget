@@ -215,6 +215,6 @@ setInterval(function(){
         // document.body.style.overflow = "hidden"
     }
 
-}, 2000)
+}, 1000)
 
 
