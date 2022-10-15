@@ -6,13 +6,13 @@
 }
 
 .scroll_hidden {
-    /* -ms-overflow-style: none; */
-    /* scrollbar-width: none; */
-    /* overflow-y: hidden; */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: hidden;
 }
 
 .scroll_hidden::-webkit-scrollbar {
-    /* display: none; */
+    display: none;
 }
 
 .widget {

@@ -4,9 +4,6 @@ let widget_open_button = document.getElementById("widget-open_button")
 let widget_openTab = false
 let widgetTabs = document.getElementById("widget-tabs")
 
-let windowWidth = window.innerWidth
-let windowHeight = window.innerHeight
-
 let widget_warning_message = document.getElementById("widget-warning_message")
 
 function open_button() {
@@ -14,7 +11,7 @@ function open_button() {
 
     if (window.innerHeight <= 570 && orientation) {
         widget_warning_message.style.display = "flex"
-        // document.body.style.overflow = "hidden"
+        scrollController("hidden")
         return
     }
 
@@ -23,15 +20,13 @@ function open_button() {
         widgetTabs.style.display = "none"
         widget_openTab = false
 
-        document.body.classList.remove('scroll_hidden')
-        // document.body.style.overflow = "auto"
+        scrollController("auto")
     } else {
         widget_open_button.style.display = "none"
         widgetTabs.style.display = "flex"
         widget_openTab = true
         
-        document.body.classList.add('scroll_hidden')
-        // document.body.style.overflow = "hidden"
+        scrollController("hidden")
     }
 }
 
@@ -183,12 +178,11 @@ $online_chat_form.addEventListener("submit", function (e) {
 
 
 widgetTabs.addEventListener("mouseenter", function() {
-    document.body.classList.add('scroll_hidden')
-    // document.body.style.overflow = "hidden"
+    scrollController("hidden")
 })
 
 widgetTabs.addEventListener("mouseleave", function() {
-    // document.body.style.overflow = "auto"
+    scrollController("auto")
 })
 
 // ------------------------------
@@ -197,7 +191,7 @@ let widget_warning_close_button = document.getElementById("widget-warning_close-
 
 widget_warning_close_button.addEventListener("click", function() {
     widget_warning_message.style.display = "none"
-    // document.body.style.overflow = "auto"
+    scrollController("auto")
 })
 
 setInterval(function(){
@@ -206,15 +200,25 @@ setInterval(function(){
 
     if (widget_openTab && window.innerHeight <= 570 && orientation) {
         widget_warning_message.style.display = "flex"
-        // document.body.style.overflow = "hidden"
         widget_openTab = false
 
         widgetTabs.style.display = "none"
         widget_open_button.style.display = "flex"
-        document.body.classList.remove('scroll_hidden')
-        // document.body.style.overflow = "hidden"
+        scrollController("hidden")
     }
 
 }, 1000)
 
 
+function scrollController(action) {
+    if (window.innerWidth >= 500) {
+        return
+    }
+    if (action == "hidden") {
+        document.body.classList.add('scroll_hidden')
+        document.body.style.overflow = "hidden"
+    } else {
+        document.body.classList.remove('scroll_hidden')
+        document.body.style.overflow = "auto"
+    }
+}
