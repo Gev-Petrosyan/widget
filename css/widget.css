@@ -563,7 +563,7 @@
     line-height: 17px;
     color: #131313;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box; 
+            box-sizing: border-box;
     word-break: break-all;
 }
 
@@ -736,15 +736,6 @@
 }
 
 @media only screen and (max-width: 500px) {
-    body {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        overflow-y: hidden;
-    }
-
-    body::-webkit-scrollbar {
-        display: none;
-    }
     .widget {
         width: 100%;
         right: 0;
@@ -975,7 +966,7 @@
             max-height: 100px !important;
         }
     }
-    
+
     @media only screen and (min-height: 1000px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 180px 20px;
@@ -1016,7 +1007,7 @@
             padding: 25px 20px !important;
         }
     }
-    
+
     @media only screen and (max-height: 490px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 200px;
@@ -1206,7 +1197,7 @@
             max-height: 100px !important;
         }
     }
-    
+
     @media only screen and (min-height: 1000px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 180px 20px;
@@ -1247,7 +1238,7 @@
             padding: 25px 20px !important;
         }
     }
-    
+
     @media only screen and (max-height: 490px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             overflow-y: scroll;
@@ -1329,8 +1320,8 @@
 }
 
 @media only screen and (orientation: landscape){
-    #widget-warning_message { 
-        display: none; 
+    #widget-warning_message {
+        display: none;
     }
 } */
 

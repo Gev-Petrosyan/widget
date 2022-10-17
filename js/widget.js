@@ -2,6 +2,7 @@ let widget_index_tab = document.getElementById("widget-tab_index")
 let widget_open_button = document.getElementById("widget-open_button")
 
 let widget_openTab = false
+let widget_warning_message_open = false
 let widgetTabs = document.getElementById("widget-tabs")
 
 let widget_warning_message = document.getElementById("widget-warning_message")
@@ -11,6 +12,8 @@ function open_button() {
 
     if (window.innerHeight <= 570 && orientation) {
         widget_warning_message.style.display = "flex"
+        widget_openTab = true
+        widget_warning_message_open = true
         scrollController("hidden")
         return
     }
@@ -181,22 +184,16 @@ $online_chat_form.addEventListener("submit", function (e) {
 })
 
 
-widgetTabs.addEventListener("mouseenter", function() {
-    // scrollController("hidden")
-})
-
-widgetTabs.addEventListener("mouseleave", function() {
-    // scrollController("auto")
-})
-
 // ------------------------------
 
-let widget_warning_close_button = document.getElementById("widget-warning_close-button")
 
-widget_warning_close_button.addEventListener("click", function() {
-    widget_warning_message.style.display = "none"
-    scrollController("auto")
-})
+// let widget_warning_close_button = document.getElementById("widget-warning_close-button")
+//
+// widget_warning_close_button.addEventListener("click", function() {
+//     widget_warning_message.style.display = "none"
+//     widget_warning_message_open = false
+//     scrollController("auto")
+// })
 
 setInterval(function(){
 
@@ -208,22 +205,25 @@ setInterval(function(){
 
     if (orientation && window.innerHeight <= 570) {
         widget_warning_message.style.display = "flex"
+        widget_warning_message_open = true
 
         widgetTabs.style.display = "none"
         widget_open_button.style.display = "flex"
-
-        scrollController("hidden")
     } else {
         widget_warning_message.style.display = "none"
+        widget_warning_message_open = false
 
         widgetTabs.style.display = "flex"
         widget_open_button.style.display = "none"
+    }
 
+    if (window.innerWidth <= 500 || widget_warning_message_open) {
+        scrollController("hidden")
+    } else {
         scrollController("auto")
     }
 
 }, 1000)
-
 
 function scrollController(action) {
     if (action == "hidden") {
@@ -232,6 +232,10 @@ function scrollController(action) {
         document.body.classList.remove('scroll_hidden')
     }
 }
+
+
+// ------------------------------
+
 
 let widget_tab_online_chat_message_input = document.getElementById("widget-tab_online_chat-message-input")
 let widget_tab_online_chat_send_form_action_smile = document.getElementById("widget-tab_online_chat-send-form_action-smile")
