@@ -200,16 +200,26 @@ widget_warning_close_button.addEventListener("click", function() {
 
 setInterval(function(){
 
+    if (!widget_openTab) {
+        return
+    }
+
     let orientation = window.matchMedia("(orientation: landscape)").matches
 
-    if (widget_openTab && window.innerHeight <= 570 && orientation) {
+    if (orientation && window.innerHeight <= 570) {
         widget_warning_message.style.display = "flex"
-        widget_openTab = false
 
         widgetTabs.style.display = "none"
         widget_open_button.style.display = "flex"
-        
+
         scrollController("hidden")
+    } else {
+        widget_warning_message.style.display = "none"
+
+        widgetTabs.style.display = "flex"
+        widget_open_button.style.display = "none"
+
+        scrollController("auto")
     }
 
 }, 1000)
@@ -218,10 +228,24 @@ setInterval(function(){
 function scrollController(action) {
     if (action == "hidden") {
         document.body.classList.add('scroll_hidden')
-        document.body.style.overflowY = "hidden"
     } else {
         document.body.classList.remove('scroll_hidden')
-        document.body.style.overflowY = "auto"
     }
+}
+
+let widget_tab_online_chat_message_input = document.getElementById("widget-tab_online_chat-message-input")
+let widget_tab_online_chat_send_form_action_smile = document.getElementById("widget-tab_online_chat-send-form_action-smile")
+
+widget_tab_online_chat_message_input.addEventListener("input", function () {
+    if (this.value) {
+        this.style.height = "auto"
+    } else {
+        this.style.height = "1rem"
+    }
+})
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test (navigator.userAgent) ){
+    widget_tab_online_chat_send_form_action_smile.style.display = "none"
+    widget_tab_online_chat_message_input.parentElement.style.width = "100%"
 }
 
