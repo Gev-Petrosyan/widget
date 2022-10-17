@@ -169,16 +169,25 @@ $online_chat_form = document.getElementById("widget-online_chat-form")
 $online_chat_form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    let message = this.querySelector("#message").value
-    if (message) {
+    let message = this.elements["message"]
+    if (message.value) {
         let url = this.action
         let method = this.method
 
         let request = new XMLHttpRequest()
         request.open(method, url)
+
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.addEventListener("readystatechange", () => {
+            if (request.readyState === 4 && request.status === 200) {
+                // выводим в консоль то что ответил сервер
+                console.log(request.responseText);
+            }
+        });
+
         request.send();
 
-        this.querySelector("#message").value = ""
+        message.value = ""
     }
 
 })
