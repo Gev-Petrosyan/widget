@@ -188,7 +188,7 @@ $online_chat_form.addEventListener("submit", function (e) {
         request.send();
 
         message.value = ""
-        message.style.height = "1.2rem"
+        message.style.height = "1.1rem"
     }
 
 })
