@@ -241,7 +241,7 @@ let widget_tab_online_chat_message_input = document.getElementById("widget-tab_o
 let widget_tab_online_chat_send_form_action_smile = document.getElementById("widget-tab_online_chat-send-form_action-smile")
 
 widget_tab_online_chat_message_input.addEventListener("input", function () {
-    if (this.value) {
+    if (this.value && this.scrollHeight >= 34) {
         this.style.height = "auto"
     } else {
         this.style.height = "1rem"
