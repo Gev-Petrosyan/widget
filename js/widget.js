@@ -188,6 +188,7 @@ $online_chat_form.addEventListener("submit", function (e) {
         request.send();
 
         message.value = ""
+        message.style.height = "1.2rem"
     }
 
 })
@@ -253,7 +254,7 @@ widget_tab_online_chat_message_input.addEventListener("input", function () {
     if (this.value && this.scrollHeight >= 34) {
         this.style.height = "auto"
     } else {
-        this.style.height = "1rem"
+        this.style.height = "1.1rem"
     }
 })
 

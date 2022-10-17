@@ -512,6 +512,26 @@
     border: none;
 }
 
+.widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-send-form_input textarea::-webkit-input-placeholder {
+    word-break: break-all;
+    font-size: 15px;
+}
+
+.widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-send-form_input textarea::-moz-placeholder {
+    word-break: break-all;
+    font-size: 15px;
+}
+
+.widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-send-form_input textarea:-ms-input-placeholder {
+    word-break: break-all;
+    font-size: 15px;
+}
+
+.widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-send-form_input textarea:-moz-placeholder {
+    word-break: break-all;
+    font-size: 15px;
+}
+
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-send-form .widget-tab_online_chat-send-form_button {
     background: -o-linear-gradient(left, #984063 0%, #F6469D 100%);
     background: -webkit-gradient(linear, left top, right top, from(#984063), to(#F6469D));
