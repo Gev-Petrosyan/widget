@@ -164,15 +164,16 @@ widgetButton_yandex_map_button.addEventListener("click", function () {
 // ------------------------------
 
 
-$online_chat_form = document.getElementById("widget-online_chat-form")
+let online_chat_form = document.getElementById("widget-online_chat-form")
 
-$online_chat_form.addEventListener("submit", function (e) {
+online_chat_form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     let message = this.elements["message"]
     if (message.value) {
         let url = this.action
         let method = this.method
+        let sendMessage = message.value
 
         let request = new XMLHttpRequest()
         request.open(method, url)
@@ -185,7 +186,7 @@ $online_chat_form.addEventListener("submit", function (e) {
             }
         });
 
-        request.send();
+        request.send(sendMessage);
 
         message.value = ""
         message.style.height = "1.1rem"
@@ -213,7 +214,7 @@ setInterval(function(){
 
     let orientation = window.matchMedia("(orientation: landscape)").matches
 
-    if (orientation && window.innerHeight <= 570) {
+    if (orientation && window.innerHeight <= 570 && widgetTabs.offsetWidth != window.innerWidth) {
         widget_warning_message.style.display = "flex"
         widget_warning_message_open = true
 
@@ -258,7 +259,7 @@ widget_tab_online_chat_message_input.addEventListener("input", function () {
     }
 })
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test (navigator.userAgent) ){
+if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test (navigator.userAgent) ) {
     widget_tab_online_chat_send_form_action_smile.style.display = "none"
     widget_tab_online_chat_message_input.parentElement.style.width = "100%"
 }
