@@ -805,7 +805,9 @@
 
     .widget .widget-tab_index {
         width: 100% !important;
+        min-height: 100vh !important;
         height: 100vh !important;
+        max-height: 100vh !important;
         border-radius: 0 !important;
     }
 
@@ -819,13 +821,17 @@
 
     .widget .widget-tab_oreder_apply {
         width: 100% !important;
+        min-height: 100vh !important;
         height: 100vh !important;
+        max-height: 100vh !important;
         border-radius: 0 !important;
     }
 
     .widget .widget-tab_online_chat {
         width: 100% !important;
+        min-height: 100vh !important;
         height: 100vh !important;
+        max-height: 100vh !important;
         border-radius: 0 !important;
     }
 
