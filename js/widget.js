@@ -5,6 +5,7 @@ let widget_openTab = false
 let widget_warning_message_open = false
 let widgetTabs = document.getElementById("widget-tabs")
 
+let widget_tab_online_chat_messager = document.getElementById("widget-tab_online_chat-messager")
 let widget_warning_message = document.getElementById("widget-warning_message")
 
 function open_button() {
@@ -239,8 +240,12 @@ setInterval(function(){
 function scrollController(action) {
     if (action == "hidden") {
         document.body.classList.add('scroll_hidden')
+        widget_tab_online_chat_messager.classList.add('scroll_hidden')
+        widgetTabs.classList.add('scroll_hidden')
     } else {
         document.body.classList.remove('scroll_hidden')
+        widget_tab_online_chat_messager.classList.remove('scroll_hidden')
+        widgetTabs.classList.remove('scroll_hidden')
     }
 }
 
