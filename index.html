@@ -329,9 +329,14 @@
                     </div>
                     <form class="widget-tab_online_chat-send-form" id="widget-online_chat-form" method="post" action="#" enctype="multipart/form-data">
                         <div class="widget-tab_online_chat-send-form_actions">
+                            <div class="widget-tab_online_chat-file_info" id="widget-tab_online_chat-file_info">
+                                <button id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles()">
+                                    <img src="images/vector.png" alt="delete">
+                                </button>
+                            </div>
                             <div class="widget-tab_online_chat-send-form_action">
-                                <input type="file" name="file" id="upload" hidden />
-                                <label for="upload">
+                                <input type="file" name="file" id="widget-tab_online_chat-upload" hidden />
+                                <label for="widget-tab_online_chat-upload">
                                     <img src="images/vector_2.png" alt="file">
                                 </label>
                             </div>
@@ -390,7 +395,7 @@
                             <img src="images/Z.png" alt="image">
                         </div>
                         <div class="widget-tab_yandex_map-body_block-text">
-                            <p>Россия, Ставропольский край, Левокумский округ муниципальный</p>
+                            <textarea>Россия, Ставропольский край, Левокумский округ муниципальный</textarea>
                         </div>
                     </div>
                     <div class="widget-tab_yandex_map-body_block-info">
@@ -398,7 +403,7 @@
                             <img src="images/1.png" alt="image">
                         </div>
                         <div class="widget-tab_yandex_map-body_block-text">
-                            <p>Россия, Республика Татарстан, Казань, Академическая улица, 2</p>
+                            <textarea>Россия, Республика Татарстан, Казань, Академическая улица, 2</textarea>
                         </div>
                     </div>
                 </div>

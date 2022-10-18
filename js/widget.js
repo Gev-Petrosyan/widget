@@ -170,28 +170,27 @@ let online_chat_form = document.getElementById("widget-online_chat-form")
 online_chat_form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    let message = this.elements["message"]
-    if (message.value) {
-        let url = this.action
-        let method = this.method
-        let sendMessage = message.value
-
-        let request = new XMLHttpRequest()
-        request.open(method, url)
-
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.addEventListener("readystatechange", () => {
-            if (request.readyState === 4 && request.status === 200) {
-                // выводим в консоль то что ответил сервер
-                console.log(request.responseText);
-            }
-        });
-
-        request.send(sendMessage);
-
-        message.value = ""
-        message.style.height = "1.1rem"
-    }
+    // let message = this.elements["message"]
+    // if (message.value) {
+    //     let url = this.action
+    //     let method = this.method
+    //     let sendMessage = message.value
+    //
+    //     let request = new XMLHttpRequest()
+    //     request.open(method, url)
+    //
+    //     request.setRequestHeader('Content-Type', 'application/json');
+    //     request.addEventListener("readystatechange", () => {
+    //         if (request.readyState === 4 && request.status === 200) {
+    //             console.log(request.responseText);
+    //         }
+    //     });
+    //
+    //     request.send(sendMessage);
+    //
+    //     message.value = ""
+    //     message.style.height = "1.1rem"
+    // }
 
 })
 
@@ -268,4 +267,49 @@ if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test (navi
     widget_tab_online_chat_send_form_action_smile.style.display = "none"
     widget_tab_online_chat_message_input.parentElement.style.width = "100%"
 }
+
+let widget_tab_online_chat_upload = document.getElementById("widget-tab_online_chat-upload")
+
+widget_tab_online_chat_upload.addEventListener("change", function () {
+    let widget_tab_online_chat_file_info = document.getElementById("widget-tab_online_chat-file_info")
+
+    if (this.files && this.files[0]) {
+        let reader = new FileReader()
+        let fileName = this.files[0].name
+        let fileType = this.files[0].type.slice(0, 5)
+        reader.onload = function (e) {
+            if (fileType == "image") {
+                let fileUrl = e.target.result
+                widget_tab_online_chat_file_info.innerHTML = `
+                    <button id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles()">
+                        <img src="images/vector.png" alt="delete">
+                    </button>
+                    <p>${fileName}</p>
+                    <img src="${fileUrl}">
+                `
+            } else {
+                widget_tab_online_chat_file_info.innerHTML = `
+                    <button id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles()">
+                        <img src="images/vector.png" alt="delete">
+                    </button>
+                    <p>${fileName}</p>
+                `
+            }
+        }
+
+        reader.readAsDataURL(this.files[0])
+        widget_tab_online_chat_file_info.style.display = "flex"
+    } else {
+        widget_tab_online_chat_file_info.style.display = "none"
+    }
+})
+
+function deleteFiles() {
+    let widget_tab_online_chat_file_info = document.getElementById("widget-tab_online_chat-file_info")
+
+    widget_tab_online_chat_upload.files[0] = {}
+    widget_tab_online_chat_file_info.innerHTML = ""
+    widget_tab_online_chat_file_info.style.display = "none"
+}
+
 
