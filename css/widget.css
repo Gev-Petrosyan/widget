@@ -15,6 +15,12 @@
     display: none;
 }
 
+@media (max-width: 500px) {
+    .scroll_hidden {
+        overflow-x: hidden;
+    }
+}
+
 .widget {
     position: fixed;
     bottom: 30px;
@@ -329,6 +335,12 @@
     margin-bottom: 25px;
 }
 
+@media (max-height: 550px) {
+    .widget-tab_oreder_apply-body_form button {
+        margin-bottom: 70px;
+    }
+}
+
 .widget-tab_oreder_apply-body_status {
     display: none;
 }
@@ -489,6 +501,10 @@
 
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-send-form_action label {
     cursor: pointer;
+}
+
+.widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-send-form_input {
+    min-width: 60%;
 }
 
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-send-form_input textarea {
@@ -678,15 +694,19 @@
         top: 0 !important;
         bottom: auto !important;
     }
+
     .widget-tab_index {
         height: 100vh !important;
     }
+
     .widget-tab_oreder_apply {
         height: 100vh !important;
     }
+
     .widget-tab_online_chat {
         height: 100vh !important;
     }
+
     .widget-tab_yandex-map {
         height: 100vh !important;
     }
@@ -698,11 +718,13 @@
         overflow-y: scroll;
         height: 87vh;
     }
+
     .widget-tab_oreder_apply-body_status {
         position: absolute;
         top: 30%;
         right: 27%;
     }
+
     .widget-tab_yandex_map-body {
         overflow-y: scroll;
         height: 88vh;
@@ -760,6 +782,7 @@
         width: 100%;
         right: 0;
     }
+
     .widget .widget-tabs {
         border-radius: 0 !important;
         min-height: 2500px !important;
@@ -768,46 +791,56 @@
         bottom: auto !important;
         width: 100%;
     }
+
     .widget .widget-open_button {
         float: right;
         margin-right: 15px;
         width: 55px;
         height: 55px;
     }
+
     .widget .widget-open_button button img {
         width: 30px;
         height: 31px;
     }
+
     .widget .widget-tab_index {
         width: 100% !important;
         height: 100vh !important;
         border-radius: 0 !important;
     }
+
     .widget .widget-tabs .widget-tab-header {
         border-radius: 0 !important;
     }
+
     .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
         padding: 5px 20px;
     }
+
     .widget .widget-tab_oreder_apply {
         width: 100% !important;
         height: 100vh !important;
         border-radius: 0 !important;
     }
+
     .widget .widget-tab_online_chat {
         width: 100% !important;
         height: 100vh !important;
         border-radius: 0 !important;
     }
+
     .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-footer {
         width: 100%;
         margin-top: 3px;
     }
+
     .widget .widget-tab_yandex-map {
         width: 100% !important;
         height: 100vh !important;
         border-radius: 0 !important;
     }
+
     .widget-tab_yandex-map .widget-tab_yandex_map-body iframe {
         min-height: 60vh;
     }
@@ -818,168 +851,196 @@
             max-height: 800px;
         }
     }
+
     @media only screen and (max-height: 1040px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 775px;
             max-height: 775px;
         }
     }
+
     @media only screen and (max-height: 1015px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 750px;
             max-height: 750px;
         }
     }
+
     @media only screen and (max-height: 990px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 725px;
             max-height: 725px;
         }
     }
+
     @media only screen and (max-height: 965px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 700px;
             max-height: 700px;
         }
     }
+
     @media only screen and (max-height: 940px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 675px;
             max-height: 675px;
         }
     }
+
     @media only screen and (max-height: 915px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 650px;
             max-height: 650px;
         }
     }
+
     @media only screen and (max-height: 890px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 625px;
             max-height: 625px;
         }
     }
+
     @media only screen and (max-height: 865px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 600px;
             max-height: 600px;
         }
     }
+
     @media only screen and (max-height: 840px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 575px;
             max-height: 575px;
         }
     }
+
     @media only screen and (max-height: 815px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 550px;
             max-height: 550px;
         }
     }
+
     @media only screen and (max-height: 790px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 525px;
             max-height: 525px;
         }
     }
+
     @media only screen and (max-height: 765px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 500px;
             max-height: 500px;
         }
     }
+
     @media only screen and (max-height: 740px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 475px;
             max-height: 475px;
         }
     }
+
     @media only screen and (max-height: 715px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 450px;
             max-height: 450px;
         }
     }
+
     @media only screen and (max-height: 690px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 425px;
             max-height: 425px;
         }
     }
+
     @media only screen and (max-height: 665px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 400px;
             max-height: 400px;
         }
     }
+
     @media only screen and (max-height: 640px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 375px;
             max-height: 375px;
         }
     }
+
     @media only screen and (max-height: 615px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 350px;
             max-height: 350px;
         }
     }
+
     @media only screen and (max-height: 590px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 325px;
             max-height: 325px;
         }
     }
+
     @media only screen and (max-height: 565px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 300px;
             max-height: 300px;
         }
     }
+
     @media only screen and (max-height: 540px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 275px;
             max-height: 275px;
         }
     }
+
     @media only screen and (max-height: 515px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 250px;
             max-height: 250px;
         }
     }
+
     @media only screen and (max-height: 490px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 225px;
             max-height: 225px;
         }
     }
+
     @media only screen and (max-height: 465px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 200px;
             max-height: 200px;
         }
     }
+
     @media only screen and (max-height: 440px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 175px !important;
             max-height: 175px !important;
         }
     }
+
     @media only screen and (max-height: 415px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 150px !important;
             max-height: 150px !important;
         }
     }
+
     @media only screen and (max-height: 390px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 125px !important;
             max-height: 125px !important;
         }
     }
+
     @media only screen and (max-height: 365px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 100px !important;
@@ -992,36 +1053,43 @@
             padding: 180px 20px;
         }
     }
+
     @media only screen and (max-height: 1000px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 150px 20px;
         }
     }
+
     @media only screen and (max-height: 950px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 120px 20px;
         }
     }
+
     @media only screen and (max-height: 850px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 90px 20px;
         }
     }
+
     @media only screen and (max-height: 750px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 60px 20px;
         }
     }
+
     @media only screen and (max-height: 650px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 30px 20px;
         }
     }
+
     @media only screen and (max-height: 550px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 10px 20px;
         }
     }
+
     @media only screen and (max-height: 470px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 25px 20px !important;
@@ -1033,9 +1101,11 @@
             min-height: 200px;
             max-height: 200px;
         }
+
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             overflow-y: scroll;
         }
+
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body .widget-tab_index-body_item {
             margin-bottom: 10px;
         }
@@ -1049,168 +1119,196 @@
             max-height: 800px;
         }
     }
+
     @media only screen and (max-height: 1040px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 775px;
             max-height: 775px;
         }
     }
+
     @media only screen and (max-height: 1015px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 750px;
             max-height: 750px;
         }
     }
+
     @media only screen and (max-height: 990px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 725px;
             max-height: 725px;
         }
     }
+
     @media only screen and (max-height: 965px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 700px;
             max-height: 700px;
         }
     }
+
     @media only screen and (max-height: 940px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 675px;
             max-height: 675px;
         }
     }
+
     @media only screen and (max-height: 915px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 650px;
             max-height: 650px;
         }
     }
+
     @media only screen and (max-height: 890px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 625px;
             max-height: 625px;
         }
     }
+
     @media only screen and (max-height: 865px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 600px;
             max-height: 600px;
         }
     }
+
     @media only screen and (max-height: 840px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 575px;
             max-height: 575px;
         }
     }
+
     @media only screen and (max-height: 815px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 550px;
             max-height: 550px;
         }
     }
+
     @media only screen and (max-height: 790px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 525px;
             max-height: 525px;
         }
     }
+
     @media only screen and (max-height: 765px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 500px;
             max-height: 500px;
         }
     }
+
     @media only screen and (max-height: 740px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 475px;
             max-height: 475px;
         }
     }
+
     @media only screen and (max-height: 715px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 450px;
             max-height: 450px;
         }
     }
+
     @media only screen and (max-height: 690px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 425px;
             max-height: 425px;
         }
     }
+
     @media only screen and (max-height: 665px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 400px;
             max-height: 400px;
         }
     }
+
     @media only screen and (max-height: 640px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 375px;
             max-height: 375px;
         }
     }
+
     @media only screen and (max-height: 615px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 350px;
             max-height: 350px;
         }
     }
+
     @media only screen and (max-height: 590px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 325px;
             max-height: 325px;
         }
     }
+
     @media only screen and (max-height: 565px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 300px;
             max-height: 300px;
         }
     }
+
     @media only screen and (max-height: 540px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 275px;
             max-height: 275px;
         }
     }
+
     @media only screen and (max-height: 515px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 250px;
             max-height: 250px;
         }
     }
+
     @media only screen and (max-height: 490px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 225px;
             max-height: 225px;
         }
     }
+
     @media only screen and (max-height: 465px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 200px;
             max-height: 200px;
         }
     }
+
     @media only screen and (max-height: 440px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 175px !important;
             max-height: 175px !important;
         }
     }
+
     @media only screen and (max-height: 415px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 150px !important;
             max-height: 150px !important;
         }
     }
+
     @media only screen and (max-height: 390px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 125px !important;
             max-height: 125px !important;
         }
     }
+
     @media only screen and (max-height: 365px) {
         .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
             min-height: 100px !important;
@@ -1223,36 +1321,43 @@
             padding: 180px 20px;
         }
     }
+
     @media only screen and (max-height: 1000px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 150px 20px;
         }
     }
+
     @media only screen and (max-height: 950px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 120px 20px;
         }
     }
+
     @media only screen and (max-height: 850px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 90px 20px;
         }
     }
+
     @media only screen and (max-height: 750px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 60px 20px;
         }
     }
+
     @media only screen and (max-height: 650px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 30px 20px;
         }
     }
+
     @media only screen and (max-height: 550px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 10px 20px;
         }
     }
+
     @media only screen and (max-height: 470px) {
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             padding: 25px 20px !important;
@@ -1263,6 +1368,7 @@
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body {
             overflow-y: scroll;
         }
+
         .widget .widget-tabs .widget-tab_index .widget-tab_index-body .widget-tab_index-body_item {
             margin-bottom: 10px;
         }
@@ -1273,6 +1379,7 @@
     .widget .widget-tabs .widget-tab_oreder_apply .widget-tab_oreder_apply-body {
         padding: 10px 20px;
     }
+
     .widget-tab_yandex-map .widget-tab_yandex_map-body {
         padding: 10px 20px;
     }
@@ -1329,21 +1436,6 @@
     color: #FFFFFF;
     font-size: 22px;
 }
-
-/* @media only screen and (orientation: portrait) {
-    .widget .widget-tabs {
-        display: none;
-    }
-    #widget-tab_online_chat-send-form_action-smile {
-        display: none;
-    }
-}
-
-@media only screen and (orientation: landscape){
-    #widget-warning_message {
-        display: none;
-    }
-} */
 
 #widget-warning_message .widget-warning_close {
     position: absolute;
