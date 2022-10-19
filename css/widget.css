@@ -854,6 +854,9 @@
     }
 
     .widget .widget-tab_index {
+        position: fixed;
+        top: 0;
+        bottom: 0;
         width: 100% !important;
         min-height: 100vh !important;
         height: 100vh !important;
@@ -870,6 +873,9 @@
     }
 
     .widget .widget-tab_oreder_apply {
+        position: fixed;
+        top: 0;
+        bottom: 0;
         width: 100% !important;
         min-height: 100vh !important;
         height: 100vh !important;
@@ -878,6 +884,9 @@
     }
 
     .widget .widget-tab_online_chat {
+        position: fixed;
+        top: 0;
+        bottom: 0;
         width: 100% !important;
         min-height: 100vh !important;
         height: 100vh !important;
@@ -891,6 +900,9 @@
     }
 
     .widget .widget-tab_yandex-map {
+        position: fixed;
+        top: 0;
+        bottom: 0;
         width: 100% !important;
         min-height: 100vh !important;
         height: 100vh !important;
