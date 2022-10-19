@@ -493,9 +493,9 @@
     align-items: center;
     background: #ffffff;
     box-shadow: 0px 0px 1px gray;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     position: fixed;
-    padding: 10px;
+    padding: 15px;
     bottom: 93px;
     right: 20px;
 }
@@ -523,8 +523,7 @@
 }
 
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-file_info img {
-    width: 100px;
-    margin-left: 5px;
+    width: 140px;
 }
 
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-send-form_actions {
@@ -544,6 +543,7 @@
 }
 
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-send-form_input {
+    height: 1.1rem;
     min-width: 60%;
 }
 
@@ -619,8 +619,7 @@
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
     -ms-scroll-chaining: none;
     overscroll-behavior: none;
-    display: -ms-grid;
-    display: grid;
+    display: flow-root;
     min-height: 330px;
     max-height: 330px;
     margin-bottom: 10px;
@@ -838,7 +837,7 @@
         min-height: 2500px !important;
         right: 0 !important;
         top: 0 !important;
-        bottom: auto !important;
+        bottom: 0 !important;
         width: 100%;
     }
 

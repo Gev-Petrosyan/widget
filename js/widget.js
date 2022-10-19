@@ -212,9 +212,17 @@ setInterval(function(){
         return
     }
 
+    // if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test (navigator.userAgent) ) {
+    //     widget_tab_online_chat_send_form_action_smile.style.display = "none"
+    //     widget_tab_online_chat_message_input.parentElement.style.width = "100%"
+    // }
+
     let orientation = window.matchMedia("(orientation: landscape)").matches
 
-    if (orientation && window.innerHeight <= 570 && widgetTabs.offsetWidth != window.innerWidth) {
+    if (orientation && window.innerHeight <= 570 &&
+        widgetTabs.offsetWidth != window.innerWidth &&
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test (navigator.userAgent) ) {
+
         widget_warning_message.style.display = "flex"
         widget_warning_message_open = true
 
@@ -232,6 +240,15 @@ setInterval(function(){
         scrollController("hidden")
     } else {
         scrollController("auto")
+    }
+
+    if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test (navigator.userAgent) ) {
+        widget_tab_online_chat_send_form_action_smile.style.display = "none"
+        widget_tab_online_chat_message_input.parentElement.style.width = "100%"
+
+        document.ontouchmove = function(event){
+            event.preventDefault();
+        }
     }
 
 }, 1000)
@@ -252,13 +269,15 @@ function scrollController(action) {
 // ------------------------------
 
 
-let widget_tab_online_chat_message_input = document.getElementById("widget-tab_online_chat-message-input")
-let widget_tab_online_chat_send_form_action_smile = document.getElementById("widget-tab_online_chat-send-form_action-smile")
+var widget_tab_online_chat_message_input = document.getElementById("widget-tab_online_chat-message-input")
+var widget_tab_online_chat_send_form_action_smile = document.getElementById("widget-tab_online_chat-send-form_action-smile")
 
 widget_tab_online_chat_message_input.addEventListener("input", function () {
     if (this.value && this.scrollHeight >= 34) {
         this.style.height = "auto"
+        this.parentElement.style.height = "auto"
     } else {
+        this.parentElement.style.height = "1.1rem"
         this.style.height = "1.1rem"
     }
 })
@@ -266,6 +285,10 @@ widget_tab_online_chat_message_input.addEventListener("input", function () {
 if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test (navigator.userAgent) ) {
     widget_tab_online_chat_send_form_action_smile.style.display = "none"
     widget_tab_online_chat_message_input.parentElement.style.width = "100%"
+
+    document.ontouchmove = function(event){
+        event.preventDefault();
+    }
 }
 
 let widget_tab_online_chat_upload = document.getElementById("widget-tab_online_chat-upload")
@@ -276,7 +299,19 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
     if (this.files && this.files[0]) {
         let reader = new FileReader()
         let fileName = this.files[0].name
-        let fileType = this.files[0].type.slice(0, 5)
+        let fileType = ""
+        let fileFormat = ""
+        for (let i = 0; i < this.files[0].type.length; i++) {
+            if (this.files[0].type[i] == "/") {
+                for (let j = 0; j < i; j++) {
+                    fileType += this.files[0].type[j]
+                }
+                for (let j = i+1; j < this.files[0].type.length; j++) {
+                    fileFormat += this.files[0].type[j]
+                }
+            }
+        }
+
         reader.onload = function (e) {
             if (fileType == "image") {
                 let fileUrl = e.target.result
@@ -284,7 +319,6 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
                     <button id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles()">
                         <img src="images/vector.png" alt="delete">
                     </button>
-                    <p>${fileName}</p>
                     <img src="${fileUrl}">
                 `
             } else {
@@ -292,7 +326,7 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
                     <button id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles()">
                         <img src="images/vector.png" alt="delete">
                     </button>
-                    <p>${fileName}</p>
+                    <p>Файл, формат: ${fileFormat}</p>
                 `
             }
         }
@@ -311,5 +345,4 @@ function deleteFiles() {
     widget_tab_online_chat_file_info.innerHTML = ""
     widget_tab_online_chat_file_info.style.display = "none"
 }
-
 
