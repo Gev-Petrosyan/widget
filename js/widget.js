@@ -170,27 +170,156 @@ let online_chat_form = document.getElementById("widget-online_chat-form")
 online_chat_form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // let message = this.elements["message"]
-    // if (message.value) {
-    //     let url = this.action
-    //     let method = this.method
-    //     let sendMessage = message.value
-    //
-    //     let request = new XMLHttpRequest()
-    //     request.open(method, url)
-    //
-    //     request.setRequestHeader('Content-Type', 'application/json');
-    //     request.addEventListener("readystatechange", () => {
-    //         if (request.readyState === 4 && request.status === 200) {
-    //             console.log(request.responseText);
-    //         }
-    //     });
-    //
-    //     request.send(sendMessage);
-    //
-    //     message.value = ""
-    //     message.style.height = "1.1rem"
-    // }
+    let message = this.elements["message"]
+    let file = this.elements["file"]
+
+    if (message.value && file.files[0]) {
+
+        let url = this.action
+        let method = this.method
+        let sendMessage = message.value
+
+        let request = new XMLHttpRequest()
+        request.open(method, url)
+
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.addEventListener("readystatechange", () => {
+            if (request.readyState === 4 && request.status === 200) {
+                console.log(request.responseText);
+            }
+        });
+
+        request.send(sendMessage);
+
+        let reader = new FileReader()
+        let fileType = ""
+        let fileFormat = ""
+        for (let i = 0; i < file.files[0].type.length; i++) {
+            if (file.files[0].type[i] == "/") {
+                for (let j = 0; j < i; j++) {
+                    fileType += file.files[0].type[j]
+                }
+                for (let j = i+1; j < file.files[0].type.length; j++) {
+                    fileFormat += file.files[0].type[j]
+                }
+            }
+        }
+
+        let widget_tab_online_chat_file_info = document.getElementById("widget-tab_online_chat-file_info")
+        let messageValue = message.value
+        reader.onload = function (e) {
+            if (fileType == "image") {
+                let fileUrl = e.target.result
+                widget_tab_online_chat_messager.innerHTML += `
+                    <div class="widget-tab_online_chat-message">
+                        <div class="message-to-box message-text_plus_image">
+                            <img src="${fileUrl}" alt="image">
+                            <p>${messageValue}</p>
+                        </div>
+                    </div>
+                `
+            } else {
+                widget_tab_online_chat_messager.innerHTML += `
+                    <div class="widget-tab_online_chat-message">
+                        <div class="message-to-box message-text_plus_image">
+                            <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileType}</b></p>
+                            <p>${messageValue}</p>
+                        </div>
+                    </div>
+                `
+            }
+        }
+
+        reader.readAsDataURL(file.files[0])
+        widget_tab_online_chat_file_info.style.display = "none"
+
+        message.value = ""
+        message.style.height = "1.1rem"
+
+    } else if (file.files[0]) {
+        let url = this.action
+        let method = this.method
+        let sendMessage = message.value
+
+        let request = new XMLHttpRequest()
+        request.open(method, url)
+
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.addEventListener("readystatechange", () => {
+            if (request.readyState === 4 && request.status === 200) {
+                console.log(request.responseText);
+            }
+        });
+
+        request.send(sendMessage);
+
+        let reader = new FileReader()
+        let fileType = ""
+        let fileFormat = ""
+        for (let i = 0; i < file.files[0].type.length; i++) {
+            if (file.files[0].type[i] == "/") {
+                for (let j = 0; j < i; j++) {
+                    fileType += file.files[0].type[j]
+                }
+                for (let j = i+1; j < file.files[0].type.length; j++) {
+                    fileFormat += file.files[0].type[j]
+                }
+            }
+        }
+
+        let widget_tab_online_chat_file_info = document.getElementById("widget-tab_online_chat-file_info")
+        reader.onload = function (e) {
+            if (fileType == "image") {
+                let fileUrl = e.target.result
+                widget_tab_online_chat_messager.innerHTML += `
+                    <div class="widget-tab_online_chat-message">
+                        <div class="message-to-box">
+                            <img src="${fileUrl}" alt="image">
+                        </div>
+                    </div>
+                `
+            } else {
+                widget_tab_online_chat_messager.innerHTML += `
+                    <div class="widget-tab_online_chat-message">
+                        <div class="message-to-box">
+                            <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileType}</b></p>
+                        </div>
+                    </div>
+                `
+            }
+        }
+
+        reader.readAsDataURL(file.files[0])
+        widget_tab_online_chat_file_info.style.display = "none"
+
+    } else {
+        let url = this.action
+        let method = this.method
+        let sendMessage = message.value
+
+        let request = new XMLHttpRequest()
+        request.open(method, url)
+
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.addEventListener("readystatechange", () => {
+            if (request.readyState === 4 && request.status === 200) {
+                console.log(request.responseText);
+            }
+        });
+
+        request.send(sendMessage);
+
+        widget_tab_online_chat_messager.innerHTML += `
+            <div class="widget-tab_online_chat-message">
+                <div class="message-to-box">
+                    <p>${message.value}</p>
+                </div>
+            </div>
+        `
+
+        message.value = ""
+        message.style.height = "1.1rem"
+    }
 
 })
 

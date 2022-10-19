@@ -507,6 +507,8 @@
 }
 
 .widget .widget-tabs .widget-tab_online_chat-body #widget-tab_online_chat-file_info-delete {
+    border: none;
+    background: transparent;
     position: absolute;
     top: 4px;
     right: 4px;
@@ -617,9 +619,10 @@
 }
 
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager {
+    width: 100%;
     -ms-scroll-chaining: none;
     overscroll-behavior: none;
-    display: flow-root;
+    display: inline-grid;
     min-height: 330px;
     max-height: 330px;
     margin-bottom: 10px;
@@ -628,6 +631,10 @@
 
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager::-webkit-scrollbar {
     width: 0;
+}
+
+.widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager .widget-tab_online_chat-message {
+    width: 100%;
 }
 
 .widget .widget-tabs .widget-tab_online_chat-body .widget-tab_online_chat-messager .widget-tab_online_chat-message p {
