@@ -211,70 +211,68 @@ online_chat_form.addEventListener("submit", function (e) {
     request.send(sendMessage);
 
     for (let a = 0; a < online_chat_upload_allFiles.length; a++) {
-      let fileLen = online_chat_upload_allFiles.length;
-      let reader = new FileReader();
-      let fileType = "";
-      let fileFormat = "";
-      for (let i = 0; i < online_chat_upload_allFiles[a].type.length; i++) {
-        if (online_chat_upload_allFiles[a].type[i] == "/") {
-          for (let j = 0; j < i; j++) {
-            fileType += online_chat_upload_allFiles[a].type[j];
-          }
-          for (let j = i + 1; j < online_chat_upload_allFiles[a].type.length; j++) {
-            fileFormat += online_chat_upload_allFiles[a].type[j];
+      if (online_chat_upload_allFiles[a]) {
+        let fileLen = online_chat_upload_allFiles.length;
+        let reader = new FileReader();
+        let fileType = "";
+        let fileFormat = "";
+        for (let i = 0; i < online_chat_upload_allFiles[a].type.length; i++) {
+          if (online_chat_upload_allFiles[a].type[i] == "/") {
+            for (let j = 0; j < i; j++) {
+              fileType += online_chat_upload_allFiles[a].type[j];
+            }
+            for (let j = i + 1; j < online_chat_upload_allFiles[a].type.length; j++) {
+              fileFormat += online_chat_upload_allFiles[a].type[j];
+            }
           }
         }
+
+        let messageValue = message.value;
+        reader.onload = function (e) {
+          if (fileType == "image") {
+            let fileUrl = e.target.result;
+            if (a >= fileLen - 1) {
+              widget_tab_online_chat_messager.innerHTML += `
+                        <div class="widget-tab_online_chat-message">
+                            <div class="message-to-box message-text_plus_image">
+                                <img src="${fileUrl}" alt="image">
+                                <p>${messageValue}</p>
+                            </div>
+                        </div>
+                    `;
+            } else {
+              widget_tab_online_chat_messager.innerHTML += `
+                        <div class="widget-tab_online_chat-message">
+                            <div class="message-to-box">
+                                <img src="${fileUrl}" alt="image">
+                            </div>
+                        </div>
+                    `;
+            }
+          } else {
+            if (a >= fileLen - 1) {
+              widget_tab_online_chat_messager.innerHTML += `
+                        <div class="widget-tab_online_chat-message">
+                            <div class="message-to-box message-text_plus_image">
+                                <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileType}</b></p>
+                                <p>${messageValue}</p>
+                            </div>
+                        </div>
+                    `;
+            } else {
+              widget_tab_online_chat_messager.innerHTML += `
+                <div class="widget-tab_online_chat-message">
+                    <div class="message-to-box">
+                        <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileType}</b></p>
+                    </div>
+                </div>
+              `;
+            }
+          }
+        };
+
+        reader.readAsDataURL(online_chat_upload_allFiles[a]);
       }
-
-      let messageValue = message.value;
-      reader.onload = function (e) {
-        if (deletedFiles[a]) {
-          return
-        }
-
-        if (fileType == "image") {
-          let fileUrl = e.target.result;
-          if (a >= fileLen - 1) {
-            widget_tab_online_chat_messager.innerHTML += `
-                      <div class="widget-tab_online_chat-message">
-                          <div class="message-to-box message-text_plus_image">
-                              <img src="${fileUrl}" alt="image">
-                              <p>${messageValue}</p>
-                          </div>
-                      </div>
-                  `;
-          } else {
-            widget_tab_online_chat_messager.innerHTML += `
-                      <div class="widget-tab_online_chat-message">
-                          <div class="message-to-box">
-                              <img src="${fileUrl}" alt="image">
-                          </div>
-                      </div>
-                  `;
-          }
-        } else {
-          if (a >= fileLen - 1) {
-            widget_tab_online_chat_messager.innerHTML += `
-                      <div class="widget-tab_online_chat-message">
-                          <div class="message-to-box message-text_plus_image">
-                              <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileType}</b></p>
-                              <p>${messageValue}</p>
-                          </div>
-                      </div>
-                  `;
-          } else {
-            widget_tab_online_chat_messager.innerHTML += `
-              <div class="widget-tab_online_chat-message">
-                  <div class="message-to-box">
-                      <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileType}</b></p>
-                  </div>
-              </div>
-            `;
-          }
-        }
-      };
-
-      reader.readAsDataURL(online_chat_upload_allFiles[a]);
     }
 
     deleteAllFiles();
@@ -304,47 +302,44 @@ online_chat_form.addEventListener("submit", function (e) {
     request.send(sendMessage);
 
     for (let a = 0; a < online_chat_upload_allFiles.length; a++) {
-      console.log(online_chat_upload_allFiles[a])
-      let reader = new FileReader();
-      let fileType = "";
-      let fileFormat = "";
-      for (let i = 0; i < online_chat_upload_allFiles[a].type.length; i++) {
-        if (online_chat_upload_allFiles[a].type[i] == "/") {
-          for (let j = 0; j < i; j++) {
-            fileType += online_chat_upload_allFiles[a].type[j];
-          }
-          for (let j = i + 1; j < online_chat_upload_allFiles[a].type.length; j++) {
-            fileFormat += online_chat_upload_allFiles[a].type[j];
+      if (online_chat_upload_allFiles[a]) {
+        let reader = new FileReader();
+        let fileType = "";
+        let fileFormat = "";
+        for (let i = 0; i < online_chat_upload_allFiles[a].type.length; i++) {
+          if (online_chat_upload_allFiles[a].type[i] == "/") {
+            for (let j = 0; j < i; j++) {
+              fileType += online_chat_upload_allFiles[a].type[j];
+            }
+            for (let j = i + 1; j < online_chat_upload_allFiles[a].type.length; j++) {
+              fileFormat += online_chat_upload_allFiles[a].type[j];
+            }
           }
         }
-      }
 
-      reader.onload = function (e) {
-        if (deletedFiles[a]) {
-          return
-        }
-
-        if (fileType == "image") {
-          let fileUrl = e.target.result;
-          widget_tab_online_chat_messager.innerHTML += `
+        reader.onload = function (e) {
+          if (fileType == "image") {
+            let fileUrl = e.target.result;
+            widget_tab_online_chat_messager.innerHTML += `
                       <div class="widget-tab_online_chat-message">
                           <div class="message-to-box">
                               <img src="${fileUrl}" alt="image">
                           </div>
                       </div>
                   `;
-        } else {
-          widget_tab_online_chat_messager.innerHTML += `
+          } else {
+            widget_tab_online_chat_messager.innerHTML += `
                       <div class="widget-tab_online_chat-message">
                           <div class="message-to-box">
                               <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileType}</b></p>
                           </div>
                       </div>
                   `;
-        }
-      };
+          }
+        };
 
-      reader.readAsDataURL(online_chat_upload_allFiles[a]);
+        reader.readAsDataURL(online_chat_upload_allFiles[a]);
+      }
     }
 
     deleteAllFiles();
@@ -450,12 +445,12 @@ setInterval(function () {
 function scrollController(action) {
   if (action == "hidden") {
     document.body.classList.add("scroll_hidden");
-    // widget_tab_online_chat_messager.classList.add("scroll_hidden");
-    // widgetTabs.classList.add("scroll_hidden");
+    widget_tab_online_chat_messager.classList.add("scroll_hidden");
+    widgetTabs.classList.add("scroll_hidden");
   } else {
     document.body.classList.remove("scroll_hidden");
-    // widget_tab_online_chat_messager.classList.remove("scroll_hidden");
-    // widgetTabs.classList.remove("scroll_hidden");
+    widget_tab_online_chat_messager.classList.remove("scroll_hidden");
+    widgetTabs.classList.remove("scroll_hidden");
   }
 }
 
@@ -485,10 +480,6 @@ if (
 ) {
   widget_tab_online_chat_send_form_action_smile.style.display = "none";
   widget_tab_online_chat_message_input.parentElement.style.width = "100%";
-
-  document.ontouchmove = function (event) {
-    event.preventDefault();
-  };
 }
 
 let widget_tab_online_chat_upload = document.getElementById(
@@ -511,7 +502,7 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
       for (let i = 0; i < this.files[a].type.length; i++) {
         if (this.files[a].type[i] == "/") {
           for (let j = 0; j < i; j++) {
-            fileType += this.files[a  ].type[j];
+            fileType += this.files[a].type[j];
           }
           for (let j = i + 1; j < this.files[a].type.length; j++) {
             fileFormat += this.files[a].type[j];
@@ -524,6 +515,7 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
           let fileUrl = e.target.result;
           widget_tab_online_chat_file_info.innerHTML += `
                         <div class='widget-tab_online_chat-file_container' id="deleteFile${a}">
+                        <p>${a}</p>
                             <img src="${fileUrl}">
                             <button type="button" id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles(${a})">
                                 <img src="images/vector.png" alt="delete">
@@ -533,6 +525,7 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
         } else {
           widget_tab_online_chat_file_info.innerHTML += `
                         <div class='widget-tab_online_chat-file_container' id="deleteFile${a}">
+                        <p>${a}</p>
                             <p>Файл, формат: ${fileFormat}</p>
                             <button type="button" id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles(${a})">
                                 <img src="images/vector.png" alt="delete">
@@ -549,31 +542,27 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
   } else {
     widget_tab_online_chat_file_info.style.display = "none";
   }
-});
 
-var deletedFiles = []
+  console.log(online_chat_upload_allFiles)
+});
 
 function deleteFiles(id) {
   let widget_tab_online_chat_file_info_id = document.getElementById(
     "deleteFile" + id
   );
 
-  deletedFiles[id] = {}
-  online_chat_upload_allFiles.splice(id, id + 1)
-  widget_tab_online_chat_file_info_id.innerHTML = ""
-  widget_tab_online_chat_file_info_id.style.padding = "0"
-
-    console.log(online_chat_upload_allFiles)
-    console.log(deletedFiles)
+  online_chat_upload_allFiles[id] = null
+  console.log(id)
+  widget_tab_online_chat_file_info_id.remove()
 
   let empty = 0;
   for (let b = 0; b < online_chat_upload_allFiles.length; b++) {
-    if (!deletedFiles[b]) {
+    if (online_chat_upload_allFiles[b] == null) {
       empty++;
     }
   }
 
-  if (empty <= 0) {
+  if (empty >= online_chat_upload_allFiles.length) {
     let widget_tab_online_chat_file_info = document.getElementById(
       "widget-tab_online_chat-file_info"
     );
@@ -581,6 +570,8 @@ function deleteFiles(id) {
     widget_tab_online_chat_file_info.innerHTML = "";
     widget_tab_online_chat_file_info.style.display = "none";
   }
+
+  console.log(online_chat_upload_allFiles)
 }
 
 function deleteAllFiles() {
@@ -593,5 +584,4 @@ function deleteAllFiles() {
   widget_tab_online_chat_file_info.style.display = "none";
 
   online_chat_upload_allFiles = []
-  deletedFiles = []
 }
