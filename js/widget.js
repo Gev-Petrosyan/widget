@@ -486,16 +486,20 @@ let widget_tab_online_chat_upload = document.getElementById(
   "widget-tab_online_chat-upload"
 );
 
-var online_chat_upload_allFiles = []
+let online_chat_upload_allFiles = []
+let online_chat_upload_allFiles_ids = 0
 
 widget_tab_online_chat_upload.addEventListener("change", function () {
   let widget_tab_online_chat_file_info = document.getElementById(
     "widget-tab_online_chat-file_info"
   );
 
-  if (this.files && this.files[0]) {
+  if (this?.files?.length) {
     for (let a = 0; a < this.files.length; a++) {
+      this.files[a].id = online_chat_upload_allFiles_ids
       online_chat_upload_allFiles[online_chat_upload_allFiles.length] = this.files[a]
+      online_chat_upload_allFiles_ids++
+
       let reader = new FileReader();
       let fileType = "";
       let fileFormat = "";
@@ -510,24 +514,23 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
         }
       }
 
+      let fileData =  this.files[a]
       reader.onload = function (e) {
         if (fileType == "image") {
           let fileUrl = e.target.result;
           widget_tab_online_chat_file_info.innerHTML += `
-                        <div class='widget-tab_online_chat-file_container' id="deleteFile${a}">
-                        <p>${a}</p>
+                        <div class='widget-tab_online_chat-file_container' id="deleteFile${fileData.id}">
                             <img src="${fileUrl}">
-                            <button type="button" id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles(${a})">
+                            <button type="button" id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles(${fileData.id})">
                                 <img src="images/vector.png" alt="delete">
                             </button>
                         </div>
                     `;
         } else {
           widget_tab_online_chat_file_info.innerHTML += `
-                        <div class='widget-tab_online_chat-file_container' id="deleteFile${a}">
-                        <p>${a}</p>
+                        <div class='widget-tab_online_chat-file_container' id="deleteFile${fileData.id}">
                             <p>Файл, формат: ${fileFormat}</p>
-                            <button type="button" id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles(${a})">
+                            <button type="button" id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles(${fileData.id})">
                                 <img src="images/vector.png" alt="delete">
                             </button>
                         </div>
@@ -551,8 +554,7 @@ function deleteFiles(id) {
     "deleteFile" + id
   );
 
-  online_chat_upload_allFiles[id] = null
-  console.log(id)
+  online_chat_upload_allFiles = online_chat_upload_allFiles.filter((item) => item.id != id)
   widget_tab_online_chat_file_info_id.remove()
 
   let empty = 0;
