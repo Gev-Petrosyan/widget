@@ -432,10 +432,6 @@ setInterval(function () {
   ) {
     widget_tab_online_chat_send_form_action_smile.style.display = "none";
     widget_tab_online_chat_message_input.parentElement.style.width = "100%";
-
-    document.ontouchmove = function (event) {
-      event.preventDefault();
-    };
   } else {
     widget_tab_online_chat_send_form_action_smile.style.display = "block";
     widget_tab_online_chat_message_input.parentElement.style.width = "auto";
@@ -445,12 +441,12 @@ setInterval(function () {
 function scrollController(action) {
   if (action == "hidden") {
     document.body.classList.add("scroll_hidden");
-    widget_tab_online_chat_messager.classList.add("scroll_hidden");
-    widgetTabs.classList.add("scroll_hidden");
+    // widget_tab_online_chat_messager.classList.add("scroll_hidden");
+    // widgetTabs.classList.add("scroll_hidden");
   } else {
     document.body.classList.remove("scroll_hidden");
-    widget_tab_online_chat_messager.classList.remove("scroll_hidden");
-    widgetTabs.classList.remove("scroll_hidden");
+    // widget_tab_online_chat_messager.classList.remove("scroll_hidden");
+    // widgetTabs.classList.remove("scroll_hidden");
   }
 }
 
