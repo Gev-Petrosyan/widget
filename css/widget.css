@@ -580,7 +580,7 @@ button {
   .widget-tabs
   .widget-tab_online_chat-body
   .widget-tab_online_chat-file_info {
-    bottom: 200px;
+    bottom: 120px !important;
   }
 }
 
@@ -591,6 +591,7 @@ button {
   border: none;
   background: transparent;
 }
+
 .widget .widget-tab_online_chat-file_container {
   width: 100%;
   display: -webkit-box;
@@ -604,6 +605,7 @@ button {
   align-items: center;
   padding-bottom: 10px;
 }
+
 .widget
 .widget-tabs
 .widget-tab_online_chat-body
