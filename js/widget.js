@@ -168,7 +168,7 @@ var widgetTab_online_chat_button = document.getElementById(
 
 widgetButton_online_chat_button.addEventListener("click", function () {
   widget_index_tab.style.display = "none";
-  widgetTab_online_chat_button.style.display = "block";
+  widgetTab_online_chat_button.style.display = "flex";
 });
 
 // ------------------------------

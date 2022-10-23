@@ -399,6 +399,7 @@ p {
   height: 561px;
   background: #ffffff;
   border-radius: 30px;
+  flex-direction: column;
 }
 
 .widget .widget-tabs .widget-tab_online_chat .widget-tab_online_chat-avatars {
@@ -467,6 +468,9 @@ img {
 
 .widget .widget-tabs .widget-tab_online_chat-body {
   padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .widget .widget-tabs .widget-tab_online_chat-body .oreder_apply-body-logo {
@@ -487,6 +491,7 @@ img {
 .widget-tabs
 .widget-tab_online_chat-body
 .widget-tab_online_chat-send-form {
+  margin-top: auto;
   width: 100%;
   height: 60px;
   background: #eaf2ff;
