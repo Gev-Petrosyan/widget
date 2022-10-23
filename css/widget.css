@@ -18,6 +18,10 @@
   display: none;
 }
 
+.widget * {
+  opacity: 1;
+}
+
 .widget {
   position: fixed;
   bottom: 30px;
@@ -114,6 +118,20 @@
   justify-content: center;
 }
 
+.widget .widget-tabs .widget-tab-header_lang img {
+  width: 100%;
+}
+
+.widget .widget-tabs .widget-tab-header_lang p {
+  margin: 0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+
 .widget .widget-tabs .widget-tab_index .widget-tab-header_lang p img {
   -webkit-filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.19));
   filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.19));
@@ -139,6 +157,10 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.widget .widget-tabs .widget-tab_index .widget-tab-header_logo img {
+  width: 100%;
 }
 
 .widget .widget-tabs .widget-tab-header_close button {
@@ -272,6 +294,14 @@ p {
   justify-content: center;
   margin-top: 5px;
   margin-bottom: 20px;
+}
+
+.widget
+.widget-tabs
+.widget-tab_oreder_apply
+.widget-tab_oreder_apply-body
+.oreder_apply-body-logo img {
+  width: 60px;
 }
 
 .widget-tab_oreder_apply-body_form .oreder_apply-body-form_group {
@@ -448,6 +478,7 @@ p {
 .widget-tab_online_chat-avatars
 .online_chat-avatar_item
 img {
+  width: 100%;
   border-radius: 50%;
 }
 
@@ -493,6 +524,10 @@ img {
   justify-content: center;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.widget .widget-tabs .widget-tab_online_chat-body .oreder_apply-body-logo img {
+  width: 60px;
 }
 
 .widget
@@ -717,6 +752,13 @@ label {
 .widget
 .widget-tabs
 .widget-tab_online_chat-body
+.widget-tab_online_chat-send-form_action img {
+  width: 100%;
+}
+
+.widget
+.widget-tabs
+.widget-tab_online_chat-body
 .widget-tab_online_chat-send-form_input {
   height: 1.1rem;
   min-width: 60%;
@@ -807,6 +849,14 @@ textarea:-moz-placeholder {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.widget
+.widget-tabs
+.widget-tab_online_chat-body
+.widget-tab_online_chat-send-form
+.widget-tab_online_chat-send-form_button img {
+  width: 18px;
 }
 
 .widget
@@ -938,6 +988,10 @@ p {
   border-radius: 30px;
 }
 
+.widget-tab_yandex-map .widget-tab_yandex-map-logo img {
+  width: 60px;
+}
+
 .widget-tab_yandex-map .widget-tab_yandex_map-body {
   padding: 10px 30px;
 }
@@ -965,6 +1019,7 @@ p {
 .widget-tab_yandex_map-body
 .widget-tab_yandex_map-body_block-info
 img {
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

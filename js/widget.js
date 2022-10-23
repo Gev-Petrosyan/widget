@@ -493,7 +493,9 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
     "widget-tab_online_chat-file_info"
   );
 
+  console.log('test1')
   if (this?.files?.length) {
+    console.log('test2')
     for (let a = 0; a < this.files.length; a++) {
       this.files[a].id = online_chat_upload_allFiles_ids
       online_chat_upload_allFiles[online_chat_upload_allFiles.length] = this.files[a]
@@ -545,7 +547,7 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
     widget_tab_online_chat_file_info.style.display = "none";
   }
 
-  console.log(online_chat_upload_allFiles)
+  this.value = ""
 });
 
 function deleteFiles(id) {
