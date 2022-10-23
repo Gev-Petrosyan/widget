@@ -399,6 +399,9 @@ p {
   height: 561px;
   background: #ffffff;
   border-radius: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -468,9 +471,14 @@ img {
 
 .widget .widget-tabs .widget-tab_online_chat-body {
   padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
 }
 
 .widget .widget-tabs .widget-tab_online_chat-body .oreder_apply-body-logo {
@@ -525,6 +533,59 @@ button {
   border: none;
   background: transparent;
   cursor: pointer;
+}
+
+.widget
+.widget-tabs
+.widget-tab_online_chat-body
+.widget-tab_online_chat-smile_box {
+  width: 40%;
+  display: none;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 0px 1px gray;
+  box-shadow: 0px 0px 1px gray;
+  position: absolute;
+  padding: 2.5px;
+  bottom: 90px;
+  right: 20px;
+}
+
+.widget
+.widget-tabs
+.widget-tab_online_chat-body
+.widget-tab_online_chat-smile_box
+.widget-tab_online_chat-smile_item {
+  width: 18px;
+  height: 18px;
+  margin: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.widget
+.widget-tabs
+.widget-tab_online_chat-body
+.widget-tab_online_chat-smile_box
+.widget-tab_online_chat-smile_item:hover {
+  background-color: #0c63e4;
 }
 
 .widget

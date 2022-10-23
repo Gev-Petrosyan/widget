@@ -379,6 +379,9 @@ online_chat_form.addEventListener("submit", function (e) {
     widget_tab_online_chat_messager.scrollTop =
       widget_tab_online_chat_messager.scrollHeight;
   }
+
+  widget_tab_online_chat_smile_box.style.display = "none"
+  widget_tab_online_chat_smile_box_open = false
 });
 
 // ------------------------------
@@ -441,12 +444,8 @@ setInterval(function () {
 function scrollController(action) {
   if (action == "hidden") {
     document.body.classList.add("scroll_hidden");
-    // widget_tab_online_chat_messager.classList.add("scroll_hidden");
-    // widgetTabs.classList.add("scroll_hidden");
   } else {
     document.body.classList.remove("scroll_hidden");
-    // widget_tab_online_chat_messager.classList.remove("scroll_hidden");
-    // widgetTabs.classList.remove("scroll_hidden");
   }
 }
 
@@ -459,15 +458,19 @@ var widget_tab_online_chat_send_form_action_smile = document.getElementById(
   "widget-tab_online_chat-send-form_action-smile"
 );
 
-widget_tab_online_chat_message_input.addEventListener("input", function () {
-  if (this.value && this.scrollHeight >= 34) {
-    this.style.height = "auto";
-    this.parentElement.style.height = "auto";
+widget_tab_online_chat_message_input.addEventListener("input", function () {check_widget_tab_online_chat_message_input()});
+
+function check_widget_tab_online_chat_message_input() {
+  if (widget_tab_online_chat_message_input.value && widget_tab_online_chat_message_input.scrollHeight >= 34) {
+    widget_tab_online_chat_message_input.style.height = "auto";
+    widget_tab_online_chat_message_input.parentElement.style.height = "auto";
   } else {
-    this.parentElement.style.height = "1.1rem";
-    this.style.height = "1.1rem";
+    widget_tab_online_chat_message_input.parentElement.style.height = "1.1rem";
+    widget_tab_online_chat_message_input.style.height = "1.1rem";
   }
-});
+  widget_tab_online_chat_message_input.scrollTop =
+      widget_tab_online_chat_message_input.scrollHeight;
+}
 
 if (
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -583,3 +586,23 @@ function deleteAllFiles() {
 
   online_chat_upload_allFiles = []
 }
+
+let widget_tab_online_chat_smile_button = document.getElementById("widget-tab_online_chat-smile_button")
+var widget_tab_online_chat_smile_box = document.getElementById("widget-tab_online_chat-smile_box")
+var widget_tab_online_chat_smile_box_open = false
+
+widget_tab_online_chat_smile_button.addEventListener("click", function () {
+  if (widget_tab_online_chat_smile_box_open) {
+    widget_tab_online_chat_smile_box.style.display = "none"
+    widget_tab_online_chat_smile_box_open = false
+  } else {
+    widget_tab_online_chat_smile_box.style.display = "flex"
+    widget_tab_online_chat_smile_box_open = true
+  }
+})
+
+function online_chat_add_smile(smile) {
+  widget_tab_online_chat_message_input.value += smile
+  check_widget_tab_online_chat_message_input()
+}
+
