@@ -598,9 +598,8 @@ button {
 .widget-tab_online_chat-body
 .widget-tab_online_chat-smile_box
 .widget-tab_online_chat-smile_item {
-  width: 18px;
-  height: 18px;
-  margin: 4px;
+  font-size: 24px;
+  margin: 3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -723,7 +722,6 @@ p {
 .widget-tab_online_chat-file_info
 img {
   max-width: 90px;
-  height: 75px;
 }
 
 .widget

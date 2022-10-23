@@ -193,22 +193,23 @@ online_chat_form.addEventListener("submit", function (e) {
   let message = this.elements["message"];
   let file = this.elements["file"];
 
-  if (message.value && file.files[0]) {
-    let url = this.action;
-    let method = this.method;
-    let sendMessage = message.value;
+  let url = this.action;
+  let method = this.method;
+  let sendMessage = message.value;
 
-    let request = new XMLHttpRequest();
-    request.open(method, url);
+  let request = new XMLHttpRequest();
+  request.open(method, url);
 
-    request.setRequestHeader("Content-Type", "application/json");
-    request.addEventListener("readystatechange", () => {
-      if (request.readyState === 4 && request.status === 200) {
-        console.log(request.responseText);
-      }
-    });
+  request.setRequestHeader("Content-Type", "application/json");
+  request.addEventListener("readystatechange", () => {
+    if (request.readyState === 4 && request.status === 200) {
+      console.log(request.responseText);
+    }
+  });
 
-    request.send(sendMessage);
+  request.send(sendMessage);
+
+  if (message.value && online_chat_upload_allFiles?.length) {
 
     for (let a = 0; a < online_chat_upload_allFiles.length; a++) {
       if (online_chat_upload_allFiles[a]) {
@@ -254,7 +255,7 @@ online_chat_form.addEventListener("submit", function (e) {
               widget_tab_online_chat_messager.innerHTML += `
                         <div class="widget-tab_online_chat-message">
                             <div class="message-to-box message-text_plus_image">
-                                <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileType}</b></p>
+                                <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileFormat}</b></p>
                                 <p>${messageValue}</p>
                             </div>
                         </div>
@@ -263,7 +264,7 @@ online_chat_form.addEventListener("submit", function (e) {
               widget_tab_online_chat_messager.innerHTML += `
                 <div class="widget-tab_online_chat-message">
                     <div class="message-to-box">
-                        <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileType}</b></p>
+                        <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileFormat}</b></p>
                     </div>
                 </div>
               `;
@@ -284,22 +285,8 @@ online_chat_form.addEventListener("submit", function (e) {
 
     widget_tab_online_chat_messager.scrollTop =
       widget_tab_online_chat_messager.scrollHeight;
-  } else if (file.files[0]) {
-    let url = this.action;
-    let method = this.method;
-    let sendMessage = message.value;
 
-    let request = new XMLHttpRequest();
-    request.open(method, url);
-
-    request.setRequestHeader("Content-Type", "application/json");
-    request.addEventListener("readystatechange", () => {
-      if (request.readyState === 4 && request.status === 200) {
-        console.log(request.responseText);
-      }
-    });
-
-    request.send(sendMessage);
+  } else if (online_chat_upload_allFiles?.length) {
 
     for (let a = 0; a < online_chat_upload_allFiles.length; a++) {
       if (online_chat_upload_allFiles[a]) {
@@ -349,22 +336,6 @@ online_chat_form.addEventListener("submit", function (e) {
     widget_tab_online_chat_messager.scrollTop =
       widget_tab_online_chat_messager.scrollHeight;
   } else if (message.value) {
-    let url = this.action;
-    let method = this.method;
-    let sendMessage = message.value;
-
-    let request = new XMLHttpRequest();
-    request.open(method, url);
-
-    request.setRequestHeader("Content-Type", "application/json");
-    request.addEventListener("readystatechange", () => {
-      if (request.readyState === 4 && request.status === 200) {
-        console.log(request.responseText);
-      }
-    });
-
-    request.send(sendMessage);
-
     widget_tab_online_chat_messager.innerHTML += `
             <div class="widget-tab_online_chat-message">
                 <div class="message-to-box">
@@ -493,9 +464,7 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
     "widget-tab_online_chat-file_info"
   );
 
-  console.log('test1')
   if (this?.files?.length) {
-    console.log('test2')
     for (let a = 0; a < this.files.length; a++) {
       this.files[a].id = online_chat_upload_allFiles_ids
       online_chat_upload_allFiles[online_chat_upload_allFiles.length] = this.files[a]
@@ -543,11 +512,11 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
       reader.readAsDataURL(this.files[a]);
     }
     widget_tab_online_chat_file_info.style.display = "flex";
+    this.value = ""
   } else {
     widget_tab_online_chat_file_info.style.display = "none";
   }
 
-  this.value = ""
 });
 
 function deleteFiles(id) {
@@ -573,8 +542,6 @@ function deleteFiles(id) {
     widget_tab_online_chat_file_info.innerHTML = "";
     widget_tab_online_chat_file_info.style.display = "none";
   }
-
-  console.log(online_chat_upload_allFiles)
 }
 
 function deleteAllFiles() {
