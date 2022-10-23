@@ -548,7 +548,7 @@ button {
   border-radius: 5px 5px 0 0;
   position: absolute;
   padding: 15px;
-  bottom: 93px;
+  bottom: 90px;
   left: 20px;
 }
 
@@ -578,15 +578,6 @@ button {
 .widget-tab_online_chat-body
 .widget-tab_online_chat-file_info::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-@media (max-width: 500px) {
-  .widget
-  .widget-tabs
-  .widget-tab_online_chat-body
-  .widget-tab_online_chat-file_info {
-    bottom: 120px !important;
-  }
 }
 
 .widget
@@ -755,6 +746,14 @@ textarea:-moz-placeholder {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.widget
+.widget-tabs
+.widget-tab_online_chat-body
+.widget-tab_online_chat-send-form
+.widget-tab_online_chat-send-form_button:focus-visible {
+  outline: none;
 }
 
 .widget
