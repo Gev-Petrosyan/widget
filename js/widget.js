@@ -14,7 +14,7 @@ function open_button() {
   let orientation = window.matchMedia("(orientation: landscape)").matches;
 
   if (window.innerHeight <= 570 && orientation && !widget_openTab) {
-    widget_warning_message.style.display = "flex";
+    widget_warning_message.classList.add("widget_element_blocked");
     widget_openTab = true;
     widget_warning_message_open = true;
     scrollController("hidden");
@@ -380,13 +380,13 @@ setInterval(function () {
       navigator.userAgent
     )
   ) {
-    widget_warning_message.style.display = "flex";
+    widget_warning_message.classList.add("widget_element_blocked");
     widget_warning_message_open = true;
 
     widgetTabs.style.display = "none";
     widget_open_button.style.display = "flex";
   } else {
-    widget_warning_message.style.display = "none";
+    widget_warning_message.classList.remove("widget_element_blocked");
     widget_warning_message_open = false;
 
     widgetTabs.style.display = "flex";
