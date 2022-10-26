@@ -60,10 +60,13 @@
 
 .widget div {
   width: auto;
+  height: auto;
   background: transparent;
 }
 
 .widget {
+  width: auto;
+  height: auto;
   position: fixed;
   bottom: 30px;
   right: 30px;
