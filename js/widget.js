@@ -6,7 +6,7 @@ let widget_warning_message_open = false;
 let widgetTabs = document.getElementById("widget-tabs");
 
 let widget_tab_online_chat_messager = document.getElementById(
-  "widget-tab_online_chat-messager"
+    "widget-tab_online_chat-messager"
 );
 let widget_warning_message = document.getElementById("widget-warning_message");
 
@@ -14,7 +14,7 @@ function open_button() {
   let orientation = window.matchMedia("(orientation: landscape)").matches;
 
   if (window.innerHeight <= 570 && orientation && !widget_openTab) {
-    widget_warning_message.classList.add("widget_element_blocked");
+    flexController(widget_warning_message,"flex");
     widget_openTab = true;
     widget_warning_message_open = true;
     scrollController("hidden");
@@ -22,16 +22,16 @@ function open_button() {
   }
 
   if (widget_openTab) {
-    widget_open_button.style.display = "flex";
-    widgetTabs.style.display = "none";
+    flexController(widget_open_button,"flex");
+    flexController(widgetTabs,"none");
     widget_openTab = false;
 
     if (window.innerWidth <= 500) {
       scrollController("auto");
     }
   } else {
-    widget_open_button.style.display = "none";
-    widgetTabs.style.display = "flex";
+    flexController(widget_open_button,"none");
+    flexController(widgetTabs,"flex");
     widget_openTab = true;
 
     if (window.innerWidth <= 500) {
@@ -41,31 +41,67 @@ function open_button() {
 }
 
 function back_button() {
-  widget_index_tab.style.display = "block";
-  widgetTab_order_apply_button.style.display = "none";
-  widgetTab_online_chat_button.style.display = "none";
-  widgetTab_online_chat_button.style.display = "none";
-  widgetTab_yandex_map_button.style.display = "none";
+  flexController(widget_index_tab,"block");
+  flexController(widgetTab_order_apply_button,"none");
+  flexController(widgetTab_online_chat_button,"none");
+  flexController(widgetTab_yandex_map_button,"none");
+}
+
+function scrollController(action) {
+  if (action == "hidden") {
+    document.body.classList.add("scroll_hidden");
+  } else {
+    document.body.classList.remove("scroll_hidden");
+  }
+}
+
+function flexController(element, to) {
+  element.classList.remove("widget_element_flex");
+  element.classList.remove("widget_element_block");
+  element.classList.remove("widget_element_none");
+
+  element.classList.add("widget_element_"+to);
+}
+
+function borderColorController(element, to) {
+  element.classList.remove("widget_element_border_green");
+  element.classList.remove("widget_element_border_red");
+
+  element.classList.add("widget_element_border_"+to);
+}
+
+function widthController(element, to) {
+  element.classList.remove("widget_element_width_full");
+  element.classList.remove("widget_element_width_auto");
+
+  element.classList.add("widget_element_width_"+to);
+}
+
+function heightController(element, to) {
+  element.classList.remove("widget_element_height_full");
+  element.classList.remove("widget_element_height_rem");
+
+  element.classList.add("widget_element_height_"+to);
 }
 
 // ------------------------------
 
 var widgetButton_order_apply_button =
-  document.getElementById("tab-order_apply");
+    document.getElementById("tab-order_apply");
 var widgetTab_order_apply_button = document.getElementById(
-  "widget-tab_oreder_apply"
+    "widget-tab_oreder_apply"
 );
 
 widgetButton_order_apply_button.addEventListener("click", function () {
-  widget_index_tab.style.display = "none";
-  widgetTab_order_apply_button.style.display = "block";
+  flexController(widget_index_tab,"none");
+  flexController(widgetTab_order_apply_button,"block");
 });
 
 let widget_tab_oreder_apply_body_form = document.getElementById(
-  "widget-tab_oreder_apply-body_form"
+    "widget-tab_oreder_apply-body_form"
 );
 let widget_tab_oreder_apply_body_status = document.getElementById(
-  "widget-tab_oreder_apply-body_status"
+    "widget-tab_oreder_apply-body_status"
 );
 
 // ------------------------------
@@ -77,110 +113,95 @@ let oreder_apply_message = document.getElementById("oreder_apply_message");
 
 oreder_apply_name.addEventListener("change", function () {
   if (!this.value) {
-    this.parentElement.style.borderColor = "#ff4848";
+    borderColorController(this.parentElement, "red")
   } else {
-    this.parentElement.style.borderColor = "#39E960";
+    borderColorController(this.parentElement, "green")
   }
 });
 
 oreder_apply_email.addEventListener("change", function () {
   if (!this.value) {
-    this.parentElement.style.borderColor = "#ff4848";
+    borderColorController(this.parentElement, "red")
   } else {
-    this.parentElement.style.borderColor = "#39E960";
+    borderColorController(this.parentElement, "green")
   }
 });
 
 oreder_apply_phone.addEventListener("change", function () {
   if (!this.value) {
-    this.parentElement.style.borderColor = "#ff4848";
+    borderColorController(this.parentElement, "red")
   } else {
-    this.parentElement.style.borderColor = "#39E960";
+    borderColorController(this.parentElement, "green")
   }
 });
 
 oreder_apply_message.addEventListener("change", function () {
   if (!this.value) {
-    this.style.borderColor = "#ff4848";
+    borderColorController(this, "red")
   } else {
-    this.style.borderColor = "#39E960";
+    borderColorController(this, "green")
   }
 });
 
 function oreder_apply() {
   if (!oreder_apply_name.value) {
-    document.getElementById(
-      "oreder_apply_name"
-    ).parentElement.style.borderColor = "#ff4848";
+    borderColorController(oreder_apply_name.parentElement, "red")
   } else {
-    document.getElementById(
-      "oreder_apply_name"
-    ).parentElement.style.borderColor = "#39E960";
+    borderColorController(oreder_apply_name.parentElement, "green")
   }
 
   if (!oreder_apply_email.value) {
-    document.getElementById(
-      "oreder_apply_email"
-    ).parentElement.style.borderColor = "#ff4848";
+    borderColorController(oreder_apply_email.parentElement, "red")
   } else {
-    document.getElementById(
-      "oreder_apply_email"
-    ).parentElement.style.borderColor = "#39E960";
+    borderColorController(oreder_apply_email.parentElement, "green")
   }
 
   if (!oreder_apply_phone.value) {
-    document.getElementById(
-      "oreder_apply_phone"
-    ).parentElement.style.borderColor = "#ff4848";
+    borderColorController(oreder_apply_phone.parentElement, "red")
   } else {
-    document.getElementById(
-      "oreder_apply_phone"
-    ).parentElement.style.borderColor = "#39E960";
+    borderColorController(oreder_apply_phone.parentElement, "green")
   }
 
   if (!oreder_apply_message.value) {
-    document.getElementById("oreder_apply_message").style.borderColor =
-      "#ff4848";
+    borderColorController(oreder_apply_message, "red")
   } else {
-    document.getElementById(
-      "oreder_apply_message"
-    ).parentElement.style.borderColor = "#39E960";
+    borderColorController(oreder_apply_message, "green")
   }
 
   if (
-    oreder_apply_name.value &&
-    oreder_apply_email.value &&
-    oreder_apply_phone.value &&
-    oreder_apply_message.value
+      oreder_apply_name.value &&
+      oreder_apply_email.value &&
+      oreder_apply_phone.value &&
+      oreder_apply_message.value
   ) {
-    widget_tab_oreder_apply_body_form.style.display = "none";
-    widget_tab_oreder_apply_body_status.style.display = "block";
+    flexController(widget_tab_oreder_apply_body_form,"none");
+    flexController(widget_tab_oreder_apply_body_status,"block");
   }
 }
 
 // ------------------------------
 
 var widgetButton_online_chat_button =
-  document.getElementById("tab-online_chat");
+    document.getElementById("tab-online_chat");
 var widgetTab_online_chat_button = document.getElementById(
-  "widget-tab_online_chat"
+    "widget-tab_online_chat"
 );
 
 widgetButton_online_chat_button.addEventListener("click", function () {
-  widget_index_tab.style.display = "none";
-  widgetTab_online_chat_button.style.display = "flex";
+  flexController(widget_index_tab,"none");
+  flexController(widgetTab_online_chat_button,"flex");
 });
 
 // ------------------------------
 
 var widgetButton_yandex_map_button = document.getElementById("tab-yandex_map");
 var widgetTab_yandex_map_button = document.getElementById(
-  "widget-tab_yandex-map"
+    "widget-tab_yandex-map"
 );
 
 widgetButton_yandex_map_button.addEventListener("click", function () {
-  widget_index_tab.style.display = "none";
-  widgetTab_yandex_map_button.style.display = "block";
+  flexController(widget_index_tab,"none");
+  flexController(widgetTab_yandex_map_button,"block");
 });
 
 // ------------------------------
@@ -255,7 +276,7 @@ online_chat_form.addEventListener("submit", function (e) {
               widget_tab_online_chat_messager.innerHTML += `
                         <div class="widget-tab_online_chat-message">
                             <div class="message-to-box message-text_plus_image">
-                                <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileFormat}</b></p>
+                                <p class="message-text_plus_file">Файл: <b>${fileFormat}</b></p>
                                 <p>${messageValue}</p>
                             </div>
                         </div>
@@ -264,7 +285,7 @@ online_chat_form.addEventListener("submit", function (e) {
               widget_tab_online_chat_messager.innerHTML += `
                 <div class="widget-tab_online_chat-message">
                     <div class="message-to-box">
-                        <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileFormat}</b></p>
+                        <p class="message-text_plus_file">Файл: <b>${fileFormat}</b></p>
                     </div>
                 </div>
               `;
@@ -277,14 +298,13 @@ online_chat_form.addEventListener("submit", function (e) {
     }
 
     deleteAllFiles();
-    document.getElementById("widget-tab_online_chat-file_info").style.display =
-      "none";
+    flexController(document.getElementById("widget-tab_online_chat-file_info"),"none");
 
     message.value = "";
-    message.style.height = "1.1rem";
+    heightController(message, "rem")
 
     widget_tab_online_chat_messager.scrollTop =
-      widget_tab_online_chat_messager.scrollHeight;
+        widget_tab_online_chat_messager.scrollHeight;
 
   } else if (online_chat_upload_allFiles?.length) {
 
@@ -318,7 +338,7 @@ online_chat_form.addEventListener("submit", function (e) {
             widget_tab_online_chat_messager.innerHTML += `
                       <div class="widget-tab_online_chat-message">
                           <div class="message-to-box">
-                              <p style="margin-top: 0; font-size: 17px">Файл: <b>${fileType}</b></p>
+                              <p class="message-text_plus_file">Файл: <b>${fileType}</b></p>
                           </div>
                       </div>
                   `;
@@ -330,11 +350,10 @@ online_chat_form.addEventListener("submit", function (e) {
     }
 
     deleteAllFiles();
-    document.getElementById("widget-tab_online_chat-file_info").style.display =
-      "none";
+    flexController(document.getElementById("widget-tab_online_chat-file_info"),"none");
 
     widget_tab_online_chat_messager.scrollTop =
-      widget_tab_online_chat_messager.scrollHeight;
+        widget_tab_online_chat_messager.scrollHeight;
   } else if (message.value) {
     widget_tab_online_chat_messager.innerHTML += `
             <div class="widget-tab_online_chat-message">
@@ -345,13 +364,13 @@ online_chat_form.addEventListener("submit", function (e) {
         `;
 
     message.value = "";
-    message.style.height = "1.1rem";
+    heightController(message, "rem")
 
     widget_tab_online_chat_messager.scrollTop =
-      widget_tab_online_chat_messager.scrollHeight;
+        widget_tab_online_chat_messager.scrollHeight;
   }
 
-  widget_tab_online_chat_smile_box.style.display = "none"
+  flexController(widget_tab_online_chat_smile_box,"none");
   widget_tab_online_chat_smile_box_open = false
 });
 
@@ -360,7 +379,7 @@ online_chat_form.addEventListener("submit", function (e) {
 // let widget_warning_close_button = document.getElementById("widget-warning_close-button")
 //
 // widget_warning_close_button.addEventListener("click", function() {
-//     widget_warning_message.style.display = "none"
+//     flexController(widget_warning_message,"none");
 //     widget_warning_message_open = false
 //     scrollController("auto")
 // })
@@ -373,24 +392,24 @@ setInterval(function () {
   let orientation = window.matchMedia("(orientation: landscape)").matches;
 
   if (
-    orientation &&
-    window.innerHeight <= 570 &&
-    widgetTabs.offsetWidth != window.innerWidth &&
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    )
+      orientation &&
+      window.innerHeight <= 570 &&
+      widgetTabs.offsetWidth != window.innerWidth &&
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+      )
   ) {
-    widget_warning_message.classList.add("widget_element_blocked");
+    flexController(widget_warning_message,"flex");
     widget_warning_message_open = true;
 
-    widgetTabs.style.display = "none";
-    widget_open_button.style.display = "flex";
+    flexController(widgetTabs,"none");
+    flexController(widget_open_button,"flex");
   } else {
-    widget_warning_message.classList.remove("widget_element_blocked");
+    flexController(widget_warning_message,"none");
     widget_warning_message_open = false;
 
-    widgetTabs.style.display = "flex";
-    widget_open_button.style.display = "none";
+    flexController(widgetTabs,"flex");
+    flexController(widget_open_button,"none");
   }
 
   if (window.innerWidth <= 500 || widget_warning_message_open) {
@@ -400,60 +419,52 @@ setInterval(function () {
   }
 
   if (
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    )
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+      )
   ) {
-    widget_tab_online_chat_send_form_action_smile.style.display = "none";
-    widget_tab_online_chat_message_input.parentElement.style.width = "100%";
+    flexController(widget_tab_online_chat_send_form_action_smile,"none");
+    widthController(widget_tab_online_chat_message_input.parentElement, "full");
   } else {
-    widget_tab_online_chat_send_form_action_smile.style.display = "block";
-    widget_tab_online_chat_message_input.parentElement.style.width = "auto";
+    flexController(widget_tab_online_chat_send_form_action_smile,"block");
+    widthController(widget_tab_online_chat_message_input.parentElement, "auto");
   }
 }, 1000);
-
-function scrollController(action) {
-  if (action == "hidden") {
-    document.body.classList.add("scroll_hidden");
-  } else {
-    document.body.classList.remove("scroll_hidden");
-  }
-}
 
 // ------------------------------
 
 var widget_tab_online_chat_message_input = document.getElementById(
-  "widget-tab_online_chat-message-input"
+    "widget-tab_online_chat-message-input"
 );
 var widget_tab_online_chat_send_form_action_smile = document.getElementById(
-  "widget-tab_online_chat-send-form_action-smile"
+    "widget-tab_online_chat-send-form_action-smile"
 );
 
 widget_tab_online_chat_message_input.addEventListener("input", function () {check_widget_tab_online_chat_message_input()});
 
 function check_widget_tab_online_chat_message_input() {
   if (widget_tab_online_chat_message_input.value && widget_tab_online_chat_message_input.scrollHeight >= 34) {
-    widget_tab_online_chat_message_input.style.height = "auto";
-    widget_tab_online_chat_message_input.parentElement.style.height = "auto";
+    heightController(widget_tab_online_chat_message_input, "auto")
+    heightController(widget_tab_online_chat_message_input.parentElement, "auto")
   } else {
-    widget_tab_online_chat_message_input.parentElement.style.height = "1.1rem";
-    widget_tab_online_chat_message_input.style.height = "1.1rem";
+    heightController(widget_tab_online_chat_message_input, "rem")
+    heightController(widget_tab_online_chat_message_input.parentElement, "rem")
   }
   widget_tab_online_chat_message_input.scrollTop =
       widget_tab_online_chat_message_input.scrollHeight;
 }
 
 if (
-  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
-  )
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+    )
 ) {
-  widget_tab_online_chat_send_form_action_smile.style.display = "none";
-  widget_tab_online_chat_message_input.parentElement.style.width = "100%";
+  flexController(widget_tab_online_chat_send_form_action_smile,"none");
+  widthController(widget_tab_online_chat_message_input.parentElement, "full");
 }
 
 let widget_tab_online_chat_upload = document.getElementById(
-  "widget-tab_online_chat-upload"
+    "widget-tab_online_chat-upload"
 );
 
 let online_chat_upload_allFiles = []
@@ -461,7 +472,7 @@ let online_chat_upload_allFiles_ids = 0
 
 widget_tab_online_chat_upload.addEventListener("change", function () {
   let widget_tab_online_chat_file_info = document.getElementById(
-    "widget-tab_online_chat-file_info"
+      "widget-tab_online_chat-file_info"
   );
 
   if (this?.files?.length) {
@@ -511,17 +522,17 @@ widget_tab_online_chat_upload.addEventListener("change", function () {
 
       reader.readAsDataURL(this.files[a]);
     }
-    widget_tab_online_chat_file_info.style.display = "flex";
+    flexController(widget_tab_online_chat_file_info,"flex");
     this.value = ""
   } else {
-    widget_tab_online_chat_file_info.style.display = "none";
+    flexController(widget_tab_online_chat_file_info,"none");
   }
 
 });
 
 function deleteFiles(id) {
   let widget_tab_online_chat_file_info_id = document.getElementById(
-    "deleteFile" + id
+      "deleteFile" + id
   );
 
   online_chat_upload_allFiles = online_chat_upload_allFiles.filter((item) => item.id != id)
@@ -536,22 +547,22 @@ function deleteFiles(id) {
 
   if (empty >= online_chat_upload_allFiles.length) {
     let widget_tab_online_chat_file_info = document.getElementById(
-      "widget-tab_online_chat-file_info"
+        "widget-tab_online_chat-file_info"
     );
 
     widget_tab_online_chat_file_info.innerHTML = "";
-    widget_tab_online_chat_file_info.style.display = "none";
+    flexController(widget_tab_online_chat_file_info,"none");
   }
 }
 
 function deleteAllFiles() {
   let widget_tab_online_chat_file_info = document.getElementById(
-    "widget-tab_online_chat-file_info"
+      "widget-tab_online_chat-file_info"
   );
 
   widget_tab_online_chat_upload.value = "";
   widget_tab_online_chat_file_info.innerHTML = "";
-  widget_tab_online_chat_file_info.style.display = "none";
+  flexController(widget_tab_online_chat_file_info,"none");
 
   online_chat_upload_allFiles = []
 }
@@ -562,10 +573,10 @@ var widget_tab_online_chat_smile_box_open = false
 
 widget_tab_online_chat_smile_button.addEventListener("click", function () {
   if (widget_tab_online_chat_smile_box_open) {
-    widget_tab_online_chat_smile_box.style.display = "none"
+    flexController(widget_tab_online_chat_smile_box,"none");
     widget_tab_online_chat_smile_box_open = false
   } else {
-    widget_tab_online_chat_smile_box.style.display = "flex"
+    flexController(widget_tab_online_chat_smile_box,"flex");
     widget_tab_online_chat_smile_box_open = true
   }
 })

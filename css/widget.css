@@ -18,16 +18,49 @@
   display: none;
 }
 
-.widget_element_blocked {
+.widget_element_flex {
   display: flex !important;
 }
 
-.widget_element_noned {
+.widget_element_block {
+  display: block !important;
+}
+
+.widget_element_none {
   display: none !important;
+}
+
+.widget_element_border_green {
+  border-color: #39E960 !important;
+}
+
+.widget_element_border_red {
+  border-color: #ff4848 !important;
+}
+
+.widget_element_width_full {
+  width: 100% !important;
+}
+
+.widget_element_width_auto {
+  width: auto !important;
+}
+
+.widget_element_height_auto {
+  height: auto !important;
+}
+
+.widget_element_height_rem {
+  height: 1.1rem !important;
 }
 
 .widget * {
   opacity: 1;
+}
+
+.widget div {
+  width: auto;
+  background: transparent;
 }
 
 .widget {
@@ -838,7 +871,6 @@ p {
 }
 
 .widget
-.widget-tab_online_chat-messager
 .widget-tab_online_chat-message
 p {
   font-family: "Roboto";
@@ -853,14 +885,12 @@ p {
 }
 
 .widget
-.widget-tab_online_chat-messager
 .widget-tab_online_chat-message
 img {
   width: 100%;
 }
 
 .widget
-.widget-tab_online_chat-messager
 .widget-tab_online_chat-message
 .message-from-box {
   max-width: 80%;
@@ -872,7 +902,6 @@ img {
 }
 
 .widget
-.widget-tab_online_chat-messager
 .widget-tab_online_chat-message
 .message-to-box {
   max-width: 80%;
@@ -884,11 +913,17 @@ img {
 }
 
 .widget
-.widget-tab_online_chat-messager
 .widget-tab_online_chat-message
 .message-text_plus_image
 p {
   margin-top: 10px;
+}
+
+.widget
+.widget-tab_online_chat-message
+.message-text_plus_file {
+  margin-top: 0 !important;
+  font-size: 17px !important;
 }
 
 .widget .widget-tab_yandex-map {
@@ -1668,11 +1703,11 @@ textarea {
     }
   }
 
-    .widget
-    .widget-tab_index-body_item {
-      margin-bottom: 10px;
-    }
+  .widget
+  .widget-tab_index-body_item {
+    margin-bottom: 10px;
   }
+}
 }
 
 @media only screen and (max-width: 400px) {
