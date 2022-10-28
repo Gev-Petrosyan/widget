@@ -1785,13 +1785,13 @@ textarea {
 }
 
 @media only screen and (max-width: 400px) {
-  .widget .widget-tab_oreder_apply-body {
-    padding: 10px 20px;
-  }
+  /*.widget .widget-tab_oreder_apply-body {*/
+  /*  padding: 10px 20px;*/
+  /*}*/
 
-  .widget-tab_yandex-map .widget-tab_yandex_map-body {
-    padding: 10px 20px;
-  }
+  /*.widget-tab_yandex-map .widget-tab_yandex_map-body {*/
+  /*  padding: 10px 20px;*/
+  /*}*/
 }
 
 #widget-warning_message {
