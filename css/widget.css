@@ -1034,7 +1034,7 @@ iframe {
   background: #ffffff;
   border: 1px solid #d6d8e6;
   border-radius: 10px;
-  margin: 15px 30px 0 30px;
+  margin: 12.5px 30px 5px 30px;
 }
 
 .widget
@@ -1115,8 +1115,6 @@ textarea {
   }
 
   .widget .widget-tab_oreder_apply-body_status {
-    position: absolute;
-    top: 25%;
     width: 100%;
   }
 
