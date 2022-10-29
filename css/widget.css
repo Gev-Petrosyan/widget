@@ -476,7 +476,7 @@ input:focus-visible {
 
 @media (max-height: 550px) {
   .widget .widget-tab_oreder_apply-body_form button {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
 }
 
