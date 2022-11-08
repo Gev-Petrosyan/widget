@@ -57,65 +57,77 @@
 }
 
 .widget * {
-  background:none;
-  border:none;
-  clear:none;
-  float:none;
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:medium;
-  font-style:normal;
-  font-weight:normal;
-  height:auto;
-  letter-spacing:normal;
-  line-height:normal;
-  max-height:none;
-  max-width:none;
-  min-height:auto;
-  min-width:auto;
-  text-align:left;
-  text-decoration:none;
-  text-indent:0;
-  text-transform:none;
-  visibility:visible;
-  white-space:normal;
-  width:auto;
-  z-index:auto;
-  overflow-y: hidden;
+  background: none;
+  border: none;
+  clear: none;
+  float: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-style: normal;
+  font-weight: normal;
+  height: auto;
+  letter-spacing: normal;
+  line-height: normal;
+  max-height: none;
+  max-width: none;
+  min-height: auto;
+  min-width: auto;
+  overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  text-transform: none;
+  visibility: visible;
+  white-space: normal;
+  width: auto;
+  z-index: auto;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: hidden;
+}
+
+.widget *::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  opacity: 0;
 }
 
 .widget {
-  position: fixed;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: none;
+  opacity: 0.8;
+  position: absolute;
   bottom: 30px;
   right: 30px;
   zoom: 1;
   z-index: 9999999999999;
-  background:none;
-  border:none;
-  clear:none;
-  float:none;
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:medium;
-  font-style:normal;
-  font-weight:normal;
-  height:auto;
-  letter-spacing:normal;
-  line-height:normal;
-  max-height:none;
-  max-width:none;
-  min-height:0;
-  min-width:0;
-  overflow-y: hidden;
-  text-align:left;
-  text-decoration:none;
-  text-indent:0;
-  text-transform:none;
-  visibility:visible;
-  white-space:normal;
-  width:auto;
-  z-index:auto;
-  overflow-y: hidden;
+  background: none;
+  border: none;
+  clear: none;
+  float: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-style: normal;
+  font-weight: normal;
+  height: auto;
+  letter-spacing: normal;
+  line-height: normal;
+  max-height: none;
+  max-width: none;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  text-transform: none;
+  visibility: visible;
+  white-space: normal;
+  width: auto;
+  z-index: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: hidden;
 }
 
 .widget p {
