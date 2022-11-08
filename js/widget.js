@@ -942,6 +942,25 @@ widgetEl.addEventListener("wheel", (e) => {
 });
 
 widgetEl.addEventListener("touchmove", function (e) {
-  e.preventDefault();
   document.body.style.overflow = "hidden";
+  const targetClassArray = [widgetChatEl, widgetMapsEl];
+  let target = e.target;
+  while (
+    target !== widgetEl &&
+    !targetClassArray.includes(target)
+  ) {
+    target = target.parentElement;
+  }
+  if (
+    e.deltaY >= 0
+      ? target.scrollTop + target.clientHeight >=
+        target.scrollHeight
+      : e.deltaY < 0 && target.scrollTop == 0
+  ) {
+    e.preventDefault();
+  }
+});
+
+widgetEl.addEventListener("touchend", function (e) {
+  document.body.style.overflow = "auto";
 });
