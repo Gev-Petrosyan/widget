@@ -81,6 +81,7 @@
   width:auto;
   z-index:auto;
   overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .widget {
@@ -114,6 +115,7 @@
   width:auto;
   z-index:auto;
   overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .widget p {
