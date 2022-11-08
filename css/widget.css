@@ -59,6 +59,7 @@
 }
 
 .widget * {
+  overflow: hidden;
   background: none;
   border: none;
   clear: none;
