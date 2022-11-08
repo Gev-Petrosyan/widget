@@ -86,7 +86,6 @@
 }
 
 .widget {
-  opacity: 0.6;
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -945,8 +944,15 @@
   color: #6e7191;
 }
 
+.widget
+  .widget-tab_online_chat-messager::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  opacity: 0;
+}
+
 .widget .widget-tab_online_chat-messager {
-  width: 120%;
+  width: 100%;
   -ms-scroll-chaining: none;
   overscroll-behavior: none;
   display: -webkit-box;
@@ -982,7 +988,7 @@
 .widget
   .widget-tab_online_chat-messager
   .widget-tab_online_chat-message {
-  max-width: 60%;
+  max-width: 70%;
   transition: none;
 }
 
