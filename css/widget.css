@@ -85,6 +85,8 @@
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
   -webkit-scrollbar-gutter: hidden;
+  scroll-chaining: none;
+  
 }
 
 .widget *::-webkit-scrollbar {
@@ -128,6 +130,7 @@
   z-index: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-scrollbar-gutter: hidden;
+  scroll-chaining: none;
 }
 
 .widget p {
