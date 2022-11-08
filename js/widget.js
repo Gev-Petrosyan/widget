@@ -942,6 +942,7 @@ widgetEl.addEventListener("wheel", (e) => {
 });
 
 widgetEl.addEventListener("touchmove", function (e) {
+  console.log("sdf")
   const targetClassArray = [widgetChatEl, widgetMapsEl];
   let target = e.target;
   while (
