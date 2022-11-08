@@ -901,3 +901,36 @@ window.addEventListener("resize", () => {
     parseFloat(window.getComputedStyle(chatEl).height)
   );
 });
+
+const widgetChatEl = document.querySelector(
+  "#widget-tab_online_chat-messager"
+);
+const widgetMapsEl = document.querySelector(
+  ".widget-tab_yandex_map-body"
+);
+const widgetEl = document.querySelector(".widget");
+const mapEl = document.querySelector(
+  ".widget-tab_yandex_map-body-maps iframe"
+);
+widgetEl.addEventListener("wheel", (e) => {
+  // родители классов, которые должны прокручиваться
+  // если адреса на виджете должны прокручиваться, то
+  // необходимо items добавить в общий родитель и добавить
+  // свойство overflow, и в mapEl изменить на класс родителя
+  const targetClassArray = [widgetChatEl, widgetMapsEl];
+  let target = e.target;
+  while (
+    target !== widgetEl &&
+    !targetClassArray.includes(target)
+  ) {
+    target = target.parentElement;
+  }
+  if (
+    e.deltaY >= 0
+      ? target.scrollTop + target.clientHeight >=
+        target.scrollHeight
+      : e.deltaY < 0 && target.scrollTop == 0
+  ) {
+    e.preventDefault();
+  }
+});
