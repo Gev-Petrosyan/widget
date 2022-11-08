@@ -1252,8 +1252,10 @@
 
 @media only screen and (max-width: 500px) {
   .widget {
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
+    top: 0;
     right: 0;
   }
 
