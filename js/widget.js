@@ -940,3 +940,22 @@ widgetEl.addEventListener("wheel", (e) => {
     e.preventDefault();
   }
 });
+
+widgetEl.addEventListener("touchmove", function (e) {
+  const targetClassArray = [widgetChatEl, widgetMapsEl];
+  let target = e.target;
+  while (
+    target !== widgetEl &&
+    !targetClassArray.includes(target)
+  ) {
+    target = target.parentElement;
+  }
+  if (
+    e.deltaY >= 0
+      ? target.scrollTop + target.clientHeight >=
+        target.scrollHeight
+      : e.deltaY < 0 && target.scrollTop == 0
+  ) {
+    e.preventDefault();
+  }
+});
