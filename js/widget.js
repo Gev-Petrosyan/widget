@@ -820,123 +820,123 @@ function online_chat_add_smile(smile) {
 // CUSTOM SCROLLBAR
 // widget_tab_online_chat_messager
 
-// const inputEl = document.querySelector(
-//   ".widget .widget-tab-chat_scroll-bar_range"
-// );
-// const circleEl = document.querySelector(
-//   ".widget-tab-chat_scroll-bar_circle"
-// );
-// const scrollBarEl = document.querySelector(
-//   ".widget .widget-tab-chat_scroll-bar"
-// );
-// const chatEl = widget_tab_online_chat_messager;
-// const chatBodyEl =
-//   widget_tab_online_chat_messager.querySelector(
-//     ".widget .widget-tab_online_chat-messager_body"
-//   );
-// const messageEl = document.querySelector(
-//   ".widget .widget-tab_online_chat-message"
-// );
-// let topK = 0;
-// let topP = 0;
-// inputEl.addEventListener("input", (e) => {
-//   chatEl.scrollTop = (topP / 100) * inputEl.value;
-//   circleEl.style.marginTop = topK * inputEl.value + "px";
-// });
+const inputEl = document.querySelector(
+  ".widget .widget-tab-chat_scroll-bar_range"
+);
+const circleEl = document.querySelector(
+  ".widget-tab-chat_scroll-bar_circle"
+);
+const scrollBarEl = document.querySelector(
+  ".widget .widget-tab-chat_scroll-bar"
+);
+const chatEl = widget_tab_online_chat_messager;
+const chatBodyEl =
+  widget_tab_online_chat_messager.querySelector(
+    ".widget .widget-tab_online_chat-messager_body"
+  );
+const messageEl = document.querySelector(
+  ".widget .widget-tab_online_chat-message"
+);
+let topK = 0;
+let topP = 0;
+inputEl.addEventListener("input", (e) => {
+  chatEl.scrollTop = (topP / 100) * inputEl.value;
+  circleEl.style.marginTop = topK * inputEl.value + "px";
+});
 
-// chatEl.addEventListener("scroll", (e) => {
-//   scrollBarInit(
-//     parseFloat(window.getComputedStyle(chatEl).height)
-//   );
-//   inputEl.value = (chatEl.scrollTop / topP) * 100;
-//   circleEl.style.marginTop = topK * inputEl.value + "px";
-// });
+chatEl.addEventListener("scroll", (e) => {
+  scrollBarInit(
+    parseFloat(window.getComputedStyle(chatEl).height)
+  );
+  inputEl.value = (chatEl.scrollTop / topP) * 100;
+  circleEl.style.marginTop = topK * inputEl.value + "px";
+});
 
-// const scrollBarInit = (height) => {
-//   const supportMessages = document.querySelectorAll(
-//     ".message-from-box"
-//   );
-//   supportMessages.forEach((el) => {
-//     el.parentElement.style.marginLeft =
-//       document.querySelector(
-//         ".widget .widget-tab_online_chat-body"
-//       ).clientWidth -
-//       parseFloat(
-//         window.getComputedStyle(el.parentElement).width
-//       ) -
-//       40 +
-//       "px";
-//   });
+const scrollBarInit = (height) => {
+  const supportMessages = document.querySelectorAll(
+    ".message-from-box"
+  );
+  supportMessages.forEach((el) => {
+    el.parentElement.style.marginLeft =
+      document.querySelector(
+        ".widget .widget-tab_online_chat-body"
+      ).clientWidth -
+      parseFloat(
+        window.getComputedStyle(el.parentElement).width
+      ) -
+      40 +
+      "px";
+  });
 
-//   if (topP <= 0) {
-//     scrollBarEl.style.opacity = 0;
-//   } else {
-//     scrollBarEl.style.opacity = 1;
-//   }
+  if (topP <= 0) {
+    scrollBarEl.style.opacity = 0;
+  } else {
+    scrollBarEl.style.opacity = 1;
+  }
 
-//   const value = height + "px";
-//   scrollBarEl.style.height = value;
-//   inputEl.style.height = value;
-//   inputEl.style.width = value;
-//   updateCoefficient();
-// };
+  const value = height + "px";
+  scrollBarEl.style.height = value;
+  inputEl.style.height = value;
+  inputEl.style.width = value;
+  updateCoefficient();
+};
 
-// const updateCoefficient = () => {
-//   topK =
-//     (parseFloat(
-//       window.getComputedStyle(scrollBarEl).height
-//     ) -
-//       parseFloat(
-//         window.getComputedStyle(circleEl).height
-//       )) /
-//     100;
-//   topP =
-//     parseFloat(window.getComputedStyle(chatBodyEl).height) +
-//     parseFloat(
-//       window.getComputedStyle(chatBodyEl).marginTop
-//     ) +
-//     parseFloat(
-//       window.getComputedStyle(chatBodyEl).marginBottom
-//     ) -
-//     chatEl.clientHeight;
-// };
+const updateCoefficient = () => {
+  topK =
+    (parseFloat(
+      window.getComputedStyle(scrollBarEl).height
+    ) -
+      parseFloat(
+        window.getComputedStyle(circleEl).height
+      )) /
+    100;
+  topP =
+    parseFloat(window.getComputedStyle(chatBodyEl).height) +
+    parseFloat(
+      window.getComputedStyle(chatBodyEl).marginTop
+    ) +
+    parseFloat(
+      window.getComputedStyle(chatBodyEl).marginBottom
+    ) -
+    chatEl.clientHeight;
+};
 
-// window.addEventListener("resize", () => {
-//   windowOrientationChecker();
-//   scrollBarInit(
-//     parseFloat(window.getComputedStyle(chatEl).height)
-//   );
-// });
+window.addEventListener("resize", () => {
+  windowOrientationChecker();
+  scrollBarInit(
+    parseFloat(window.getComputedStyle(chatEl).height)
+  );
+});
 
-// const widgetChatEl = document.querySelector(
-//   "#widget-tab_online_chat-messager"
-// );
-// const widgetMapsEl = document.querySelector(
-//   ".widget-tab_yandex_map-body"
-// );
-// const widgetEl = document.querySelector(".widget");
-// const mapEl = document.querySelector(
-//   ".widget-tab_yandex_map-body-maps iframe"
-// );
-// widgetEl.addEventListener("wheel", (e) => {
-//   // родители классов, которые должны прокручиваться
-//   // если адреса на виджете должны прокручиваться, то
-//   // необходимо items добавить в общий родитель и добавить
-//   // свойство overflow, и в mapEl изменить на класс родителя
-//   const targetClassArray = [widgetChatEl, widgetMapsEl];
-//   let target = e.target;
-//   while (
-//     target !== widgetEl &&
-//     !targetClassArray.includes(target)
-//   ) {
-//     target = target.parentElement;
-//   }
-//   if (
-//     e.deltaY >= 0
-//       ? target.scrollTop + target.clientHeight >=
-//         target.scrollHeight
-//       : e.deltaY < 0 && target.scrollTop == 0
-//   ) {
-//     e.preventDefault();
-//   }
-// });
+const widgetChatEl = document.querySelector(
+  "#widget-tab_online_chat-messager"
+);
+const widgetMapsEl = document.querySelector(
+  ".widget-tab_yandex_map-body"
+);
+const widgetEl = document.querySelector(".widget");
+const mapEl = document.querySelector(
+  ".widget-tab_yandex_map-body-maps iframe"
+);
+widgetEl.addEventListener("wheel", (e) => {
+  // родители классов, которые должны прокручиваться
+  // если адреса на виджете должны прокручиваться, то
+  // необходимо items добавить в общий родитель и добавить
+  // свойство overflow, и в mapEl изменить на класс родителя
+  const targetClassArray = [widgetChatEl, widgetMapsEl];
+  let target = e.target;
+  while (
+    target !== widgetEl &&
+    !targetClassArray.includes(target)
+  ) {
+    target = target.parentElement;
+  }
+  if (
+    e.deltaY >= 0
+      ? target.scrollTop + target.clientHeight >=
+        target.scrollHeight
+      : e.deltaY < 0 && target.scrollTop == 0
+  ) {
+    e.preventDefault();
+  }
+});
