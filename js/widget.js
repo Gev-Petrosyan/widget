@@ -245,6 +245,9 @@ widgetButton_online_chat_button.addEventListener(
   function () {
     flexController(widget_index_tab, "none");
     flexController(widgetTab_online_chat_button, "flex");
+    scrollBarInit(
+      parseFloat(window.getComputedStyle(chatEl).height)
+    );
   }
 );
 
@@ -269,10 +272,16 @@ widgetButton_yandex_map_button.addEventListener(
 let online_chat_form = document.getElementById(
   "widget-online_chat-form"
 );
+const widget_tab_online_chat_messager_body =
+  document.querySelector(
+    ".widget-tab_online_chat-messager_body"
+  );
 
 online_chat_form.addEventListener("submit", function (e) {
   e.preventDefault();
-
+  scrollBarInit(
+    parseFloat(window.getComputedStyle(chatEl).height)
+  );
   let message = this.elements["message"];
   console.log(message.value);
   let file = this.elements["file"];
@@ -342,46 +351,46 @@ online_chat_form.addEventListener("submit", function (e) {
           if (fileType == "image") {
             let fileUrl = e.target.result;
             if (a >= fileLen - 1) {
-              widget_tab_online_chat_messager.innerHTML += `
-                        <div class="widget-tab_online_chat-message">
-                            <div class="message-to-box message-text_plus_image">
+              widget_tab_online_chat_messager_body.innerHTML += `
+                        <sbtnw class="widget-tab_online_chat-message">
+                            <sbtnw class="message-to-box message-text_plus_image">
                                 <img src="${fileUrl}" alt="image">
                                 ${messageValue
                                   .split("\n")
                                   .map((e) => `<p>${e}</p>`)
                                   .join("\n")}
-                            </div>
-                        </div>
+                            </sbtnw>
+                        </sbtnw>
                     `;
             } else {
-              widget_tab_online_chat_messager.innerHTML += `
-                        <div class="widget-tab_online_chat-message">
-                            <div class="message-to-box">
+              widget_tab_online_chat_messager_body.innerHTML += `
+                        <sbtnw class="widget-tab_online_chat-message">
+                            <sbtnw class="message-to-box">
                                 <img src="${fileUrl}" alt="image">
-                            </div>
-                        </div>
+                            </sbtnw>
+                        </sbtnw>
                     `;
             }
           } else {
             if (a >= fileLen - 1) {
-              widget_tab_online_chat_messager.innerHTML += `
-                        <div class="widget-tab_online_chat-message">
-                            <div class="message-to-box message-text_plus_image">
+              widget_tab_online_chat_messager_body.innerHTML += `
+                        <sbtnw class="widget-tab_online_chat-message">
+                            <sbtnw class="message-to-box message-text_plus_image">
                                 <p class="message-text_plus_file">Файл: <b>${fileFormat}</b></p>
                                 ${messageValue
                                   .split("\n")
                                   .map((e) => `<p>${e}</p>`)
                                   .join("\n")}
-                            </div>
-                        </div>
+                            </sbtnw>
+                        </sbtnw>
                     `;
             } else {
-              widget_tab_online_chat_messager.innerHTML += `
-                <div class="widget-tab_online_chat-message">
-                    <div class="message-to-box">
+              widget_tab_online_chat_messager_body.innerHTML += `
+                <sbtnw class="widget-tab_online_chat-message">
+                    <sbtnw class="message-to-box">
                         <p class="message-text_plus_file">Файл: <b>${fileFormat}</b></p>
-                    </div>
-                </div>
+                    </sbtnw>
+                </sbtnw>
               `;
             }
           }
@@ -403,9 +412,6 @@ online_chat_form.addEventListener("submit", function (e) {
 
     message.value = "";
     heightController(message, "rem");
-
-    widget_tab_online_chat_messager.scrollTop =
-      widget_tab_online_chat_messager.scrollHeight;
   } else if (online_chat_upload_allFiles?.length) {
     for (
       let a = 0;
@@ -443,20 +449,20 @@ online_chat_form.addEventListener("submit", function (e) {
         reader.onload = function (e) {
           if (fileType == "image") {
             let fileUrl = e.target.result;
-            widget_tab_online_chat_messager.innerHTML += `
-                      <div class="widget-tab_online_chat-message">
-                          <div class="message-to-box">
+            widget_tab_online_chat_messager_body.innerHTML += `
+                      <sbtnw class="widget-tab_online_chat-message">
+                          <sbtnw class="message-to-box">
                               <img src="${fileUrl}" alt="image">
-                          </div>
-                      </div>
+                          </sbtnw>
+                      </sbtnw>
                   `;
           } else {
-            widget_tab_online_chat_messager.innerHTML += `
-                      <div class="widget-tab_online_chat-message">
-                          <div class="message-to-box">
+            widget_tab_online_chat_messager_body.innerHTML += `
+                      <sbtnw class="widget-tab_online_chat-message">
+                          <sbtnw class="message-to-box">
                               <p class="message-text_plus_file">Файл: <b>${fileType}</b></p>
-                          </div>
-                      </div>
+                          </sbtnw>
+                      </sbtnw>
                   `;
           }
         };
@@ -474,28 +480,31 @@ online_chat_form.addEventListener("submit", function (e) {
       ),
       "none"
     );
-
-    widget_tab_online_chat_messager.scrollTop =
-      widget_tab_online_chat_messager.scrollHeight;
   } else if (message.value) {
-    widget_tab_online_chat_messager.innerHTML += `
-            <div class="widget-tab_online_chat-message">
-                <div class="message-to-box">
+    widget_tab_online_chat_messager_body.innerHTML += `
+            <sbtnw class="widget-tab_online_chat-message">
+                <sbtnw class="message-to-box">
                     ${message.value
                       .split("\n")
                       .map((e) => `<p>${e}</p>`)
                       .join("\n")}
-                </div>
-            </div>
+                </sbtnw>
+            </sbtnw>
         `;
 
     message.value = "";
     heightController(message, "rem");
-
-    widget_tab_online_chat_messager.scrollTop =
-      widget_tab_online_chat_messager.scrollHeight;
   }
 
+  setTimeout(() => {
+    widget_tab_online_chat_messager.scrollTo({
+      behavior: "smooth",
+      top: widget_tab_online_chat_messager.scrollHeight,
+    });
+    scrollBarInit(
+      parseFloat(window.getComputedStyle(chatEl).height)
+    );
+  }, 100);
   flexController(widget_tab_online_chat_smile_box, "none");
   widget_tab_online_chat_smile_box_open = false;
 });
@@ -510,7 +519,7 @@ online_chat_form.addEventListener("submit", function (e) {
 //     scrollController("auto")
 // })
 
-setInterval(function () {
+const windowOrientationChecker = () => {
   if (!widget_openTab) {
     return;
   }
@@ -572,7 +581,7 @@ setInterval(function () {
       "auto"
     );
   }
-}, 1000);
+};
 
 // ------------------------------
 
@@ -801,35 +810,94 @@ function online_chat_add_smile(smile) {
   check_widget_tab_online_chat_message_input();
 }
 
-const widgetChatEl = document.querySelector(
-  "#widget-tab_online_chat-messager"
+// CUSTOM SCROLLBAR
+// widget_tab_online_chat_messager
+
+const inputEl = document.querySelector(
+  ".widget .widget-tab-chat_scroll-bar_range"
 );
-const widgetMapsEl = document.querySelector(
-  ".widget-tab_yandex_map-body"
+const circleEl = document.querySelector(
+  ".widget-tab-chat_scroll-bar_circle"
 );
-const widgetEl = document.querySelector(".widget");
-const mapEl = document.querySelector(
-  ".widget-tab_yandex_map-body-maps iframe"
+const scrollBarEl = document.querySelector(
+  ".widget .widget-tab-chat_scroll-bar"
 );
-widgetEl.addEventListener("wheel", (e) => {
-  // родители классов, которые должны прокручиваться
-  // если адреса на виджете должны прокручиваться, то
-  // необходимо items добавить в общий родитель и добавить
-  // свойство overflow, и в mapEl изменить на класс родителя
-  const targetClassArray = [widgetChatEl, widgetMapsEl];
-  let target = e.target;
-  while (
-    target !== widgetEl &&
-    !targetClassArray.includes(target)
-  ) {
-    target = target.parentElement;
+const chatEl = widget_tab_online_chat_messager;
+const chatBodyEl =
+  widget_tab_online_chat_messager.querySelector(
+    ".widget .widget-tab_online_chat-messager_body"
+  );
+const messageEl = document.querySelector(
+  ".widget .widget-tab_online_chat-message"
+);
+let topK = 0;
+let topP = 0;
+inputEl.addEventListener("input", (e) => {
+  updateCoefficient();
+  chatEl.scrollTop = (topP / 100) * inputEl.value;
+  circleEl.style.marginTop = topK * inputEl.value + "px";
+});
+
+chatEl.addEventListener("scroll", (e) => {
+  scrollBarInit(
+    parseFloat(window.getComputedStyle(chatEl).height)
+  );
+  inputEl.value = (chatEl.scrollTop / topP) * 100;
+  circleEl.style.marginTop = topK * inputEl.value + "px";
+});
+
+const scrollBarInit = (height) => {
+  const supportMessages = document.querySelectorAll(
+    ".message-from-box"
+  );
+  supportMessages.forEach((el) => {
+    el.parentElement.style.marginLeft =
+      document.querySelector(
+        ".widget .widget-tab_online_chat-body"
+      ).clientWidth -
+      parseFloat(
+        window.getComputedStyle(el.parentElement).width
+      ) -
+      40 +
+      "px";
+  });
+
+  if (topP <= 0) {
+    scrollBarEl.style.opacity = 0;
+  } else {
+    scrollBarEl.style.opacity = 1;
   }
-  if (
-    e.deltaY >= 0
-      ? target.scrollTop + target.clientHeight >=
-        target.scrollHeight
-      : e.deltaY < 0 && target.scrollTop == 0
-  ) {
-    e.preventDefault();
-  }
+
+  const value = height + "px";
+  scrollBarEl.style.height = value;
+  inputEl.style.height = value;
+  inputEl.style.width = value;
+  updateCoefficient();
+};
+
+const updateCoefficient = () => {
+  topK =
+    (parseFloat(
+      window.getComputedStyle(scrollBarEl).height
+    ) -
+      parseFloat(
+        window.getComputedStyle(circleEl).height
+      )) /
+    100;
+  topP =
+    parseFloat(window.getComputedStyle(chatBodyEl).height) +
+    parseFloat(
+      window.getComputedStyle(chatBodyEl).marginTop
+    ) +
+    parseFloat(
+      window.getComputedStyle(chatBodyEl).marginBottom
+    ) -
+    chatEl.clientHeight;
+};
+
+window.addEventListener("resize", () => {
+  windowOrientationChecker();
+  scrollBarInit(
+    parseFloat(window.getComputedStyle(chatEl).height)
+  );
 });
