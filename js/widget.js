@@ -833,7 +833,6 @@ const messageEl = document.querySelector(
 let topK = 0;
 let topP = 0;
 inputEl.addEventListener("input", (e) => {
-  updateCoefficient();
   chatEl.scrollTop = (topP / 100) * inputEl.value;
   circleEl.style.marginTop = topK * inputEl.value + "px";
 });
