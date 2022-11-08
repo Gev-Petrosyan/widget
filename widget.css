@@ -83,11 +83,23 @@
   white-space: normal;
   width: auto;
   z-index: auto;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: hidden;
+}
+
+.widget *::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  opacity: 0;
 }
 
 .widget {
+  -ms-scroll-chaining: none;
+  overscroll-behavior: none;
   opacity: 0.8;
-  position: fixed;
+  position: absolute;
   bottom: 30px;
   right: 30px;
   zoom: 1;
@@ -107,7 +119,7 @@
   max-width: none;
   min-height: 0;
   min-width: 0;
-  overflow: visible;
+  overflow: hidden;
   text-align: left;
   text-decoration: none;
   text-indent: 0;
@@ -116,6 +128,8 @@
   white-space: normal;
   width: auto;
   z-index: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: hidden;
 }
 
 .widget p {
@@ -1238,7 +1252,8 @@
 
 @media only screen and (max-width: 500px) {
   .widget {
-    width: 100%;
+    width: 110%;
+    height: 100vh;
     overflow: hidden;
     right: 0;
   }
