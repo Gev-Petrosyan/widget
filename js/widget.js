@@ -945,4 +945,5 @@ widgetEl.addEventListener("touchmove", function (e) {
   console.log("first");
   e.preventDefault();
   document.body.style.overflow = "hidden";
+  window.scrollTo({ top: 0, behavior: "instant" });
 });
