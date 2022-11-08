@@ -59,7 +59,6 @@
 }
 
 .widget * {
-  overflow: hidden;
   background: none;
   border: none;
   clear: none;
@@ -75,7 +74,7 @@
   max-width: none;
   min-height: auto;
   min-width: auto;
-/*   overflow: visible; */
+  overflow: hidden;
   text-align: left;
   text-decoration: none;
   text-indent: 0;
@@ -645,10 +644,10 @@
   -ms-flex-pack: center;
   justify-content: center;
   padding-bottom: 10px;
-  position: absolute;
+  /* position: absolute;
   top: 10px;
   left: 0;
-  z-index: 1;
+  z-index: 1; */
   background-color: #ffffff;
   width: 100%;
 }
@@ -968,10 +967,9 @@
   min-height: 330px;
   max-height: 330px;
   margin-bottom: 10px;
-  overflow-y: auto;
-  position: absolute;
+  /* position: absolute;
   left: 20px;
-  top: 45px;
+  top: 45px; */
 }
 .widget .widget-tab_online_chat-messager:last-of-type {
   margin-bottom: 0;
