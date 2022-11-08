@@ -17,6 +17,8 @@ let widget_warning_message = document.getElementById(
   "widget-warning_message"
 );
 
+let scrollTopValue = 0;
+
 function open_button() {
   let orientation = window.matchMedia(
     "(orientation: landscape)"
@@ -38,9 +40,12 @@ function open_button() {
     flexController(widget_open_button, "flex");
     flexController(widgetTabs, "none");
     widget_openTab = false;
-
     if (window.innerWidth <= 500) {
       scrollController("auto");
+      window.scrollBy({
+        top: scrollTopValue,
+        behavior: "instant",
+      });
     }
   } else {
     flexController(widget_open_button, "none");
@@ -48,6 +53,7 @@ function open_button() {
     widget_openTab = true;
 
     if (window.innerWidth <= 500) {
+      scrollTopValue = window.scrollY;
       scrollController("hidden");
     }
   }
@@ -107,7 +113,8 @@ var widgetTab_order_apply_button = document.getElementById(
 
 widgetButton_order_apply_button.addEventListener(
   "click",
-  function () {
+  function (e) {
+    console.log("fsdf");
     flexController(widget_index_tab, "none");
     flexController(widgetTab_order_apply_button, "block");
   }
