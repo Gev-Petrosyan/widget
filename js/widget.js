@@ -941,7 +941,7 @@ widgetEl.addEventListener("wheel", (e) => {
 });
 
 widgetEl.addEventListener("touchmove", function (e) {
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow = "fixed";
   userWidgetUsingChecker(e);
 });
 
