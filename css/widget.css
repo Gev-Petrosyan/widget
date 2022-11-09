@@ -87,6 +87,7 @@
   overscroll-behavior: none;
   scrollbar-color: #3581fc #b1e3fa; /* «цвет ползунка» «цвет полосы скроллбара» */
   scrollbar-width: 6px;
+  -webkit-overflow-scrolling: auto;
 }
 
 .widget *::-webkit-scrollbar {
