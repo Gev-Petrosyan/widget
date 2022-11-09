@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/widget.css" />
+    
     <title>REMP</title>
   </head>
   <body>
@@ -459,6 +460,7 @@
             <sbtnw
               class="widget-tab_online_chat-messager"
               id="widget-tab_online_chat-messager"
+              data-simplebar
             >
               <sbtnw class="widget-tab_online_chat-messager_body">
                 <sbtnw class="widget-tab_online_chat-message">
@@ -477,10 +479,14 @@
             >
 
               <sbtnw class="widget-tab_online_chat-send-form_actions">
-                <sbtnw
-                  class="widget-tab_online_chat-file_info"
-                  id="widget-tab_online_chat-file_info"
-                ></sbtnw>
+                  <sbtnw
+                    class="widget-tab_online_chat-file_info"
+                    id="widget-tab_online_chat-file_info"
+                    data-simplebar
+                  >
+                  <div class='widget-tab_online_chat-file_info-container'>
+                  </div>
+                  </sbtnw>
                 <sbtnw class="widget-tab_online_chat-smile_box" id="widget-tab_online_chat-smile_box">
                   <button type="button" class="widget-tab_online_chat-smile_item" onclick="online_chat_add_smile('&#128512')">
                     &#128512
@@ -737,6 +743,7 @@
       </sbtnw>
     </sbtnw>
 
+    <script src="js/simplebar.js"></script>
     <script src="js/widget.js"></script>
     <script
       src="https://kit.fontawesome.com/ba53ee2513.js"

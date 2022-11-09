@@ -499,10 +499,16 @@ online_chat_form.addEventListener("submit", function (e) {
   }
 
   setTimeout(() => {
-    widget_tab_online_chat_messager.scrollTo({
-      behavior: "smooth",
-      top: widget_tab_online_chat_messager.scrollHeight,
-    });
+    document
+      .querySelectorAll(".simplebar-content-wrapper")
+      .forEach((e) => {
+        e.scrollTo({
+          behavior: "smooth",
+          top: document.querySelector(
+            ".simplebar-content-wrapper"
+          ).scrollHeight,
+        });
+      });
   }, 100);
   flexController(widget_tab_online_chat_smile_box, "none");
   widget_tab_online_chat_smile_box_open = false;
@@ -691,7 +697,9 @@ widget_tab_online_chat_upload.addEventListener(
         reader.onload = function (e) {
           if (fileType == "image") {
             let fileUrl = e.target.result;
-            widget_tab_online_chat_file_info.innerHTML += `
+            widget_tab_online_chat_file_info.querySelector(
+              ".widget-tab_online_chat-file_info-container"
+            ).innerHTML += `
                         <div class='widget-tab_online_chat-file_container' id="deleteFile${fileData.id}">
                             <img src="${fileUrl}">
                             <button type="button" id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles(${fileData.id})">
@@ -700,7 +708,9 @@ widget_tab_online_chat_upload.addEventListener(
                         </div>
                     `;
           } else {
-            widget_tab_online_chat_file_info.innerHTML += `
+            widget_tab_online_chat_file_info.querySelector(
+              ".widget-tab_online_chat-file_info-container"
+            ).innerHTML += `
                         <div class='widget-tab_online_chat-file_container' id="deleteFile${fileData.id}">
                             <p>Файл, формат: ${fileFormat}</p>
                             <button type="button" id="widget-tab_online_chat-file_info-delete" onclick="deleteFiles(${fileData.id})">
@@ -724,8 +734,29 @@ widget_tab_online_chat_upload.addEventListener(
         "none"
       );
     }
+    heightFilesChecker();
   }
 );
+
+function heightFilesChecker() {
+  setTimeout(() => {
+    const widget_tab_online_chat_file_info =
+      document.querySelector(
+        ".widget-tab_online_chat-file_info"
+      );
+    if (
+      widget_tab_online_chat_file_info.querySelector(
+        ".widget-tab_online_chat-file_info-container"
+      ).clientHeight >=
+      widget_tab_online_chat_file_info.clientHeight
+    ) {
+      widget_tab_online_chat_file_info.style.height = "70%";
+    } else {
+      widget_tab_online_chat_file_info.style.height =
+        "auto";
+    }
+  }, 10);
+}
 
 function deleteFiles(id) {
   let widget_tab_online_chat_file_info_id =
@@ -754,12 +785,15 @@ function deleteFiles(id) {
         "widget-tab_online_chat-file_info"
       );
 
-    widget_tab_online_chat_file_info.innerHTML = "";
+    widget_tab_online_chat_file_info.querySelector(
+      ".widget-tab_online_chat-file_info-container"
+    ).innerHTML = "";
     flexController(
       widget_tab_online_chat_file_info,
       "none"
     );
   }
+  heightFilesChecker();
 }
 
 function deleteAllFiles() {
@@ -769,7 +803,9 @@ function deleteAllFiles() {
     );
 
   widget_tab_online_chat_upload.value = "";
-  widget_tab_online_chat_file_info.innerHTML = "";
+  widget_tab_online_chat_file_info.querySelector(
+    ".widget-tab_online_chat-file_info-container"
+  ).innerHTML = "";
   flexController(widget_tab_online_chat_file_info, "none");
 
   online_chat_upload_allFiles = [];
@@ -809,9 +845,6 @@ function online_chat_add_smile(smile) {
   check_widget_tab_online_chat_message_input();
 }
 
-const widgetChatEl = document.querySelector(
-  "#widget-tab_online_chat-messager"
-);
 const widgetMapsEl = document.querySelector(
   ".widget-tab_yandex_map-body"
 );
@@ -825,7 +858,9 @@ widgetEl.addEventListener("wheel", (e) => {
   // необходимо items добавить в общий родитель и добавить
   // свойство overflow, и в mapEl изменить на класс родителя
   const targetClassArray = [
-    widgetChatEl,
+    ...document.querySelectorAll(
+      ".simplebar-content-wrapper"
+    ),
     widgetMapsEl,
     filesChatEl,
   ];
