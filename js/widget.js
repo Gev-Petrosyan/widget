@@ -941,10 +941,14 @@ widgetEl.addEventListener("wheel", (e) => {
 });
 
 widgetEl.addEventListener("touchmove", function (e) {
-  document.body.style.overflow = "fixed";
+  document.body.style.overflow = "hidden";
+  if (window.innerWidth <= 500)
+    document.body.style.position = "fixed";
   userWidgetUsingChecker(e);
 });
 
 widgetEl.addEventListener("touchend", function (e) {
   document.body.style.overflow = "auto";
+  if (window.innerWidth <= 500)
+    document.body.style.position = "initial";
 });
