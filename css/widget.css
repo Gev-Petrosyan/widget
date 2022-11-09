@@ -84,7 +84,7 @@
   width: auto;
   z-index: auto;
   -ms-scroll-chaining: none;
-  overscroll-behavior: none;
+  overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-gutter: hidden;
 }
@@ -126,6 +126,7 @@
   white-space: normal;
   width: auto;
   z-index: auto;
+  overscroll-behavior: contain;
 }
 
 .widget p {
