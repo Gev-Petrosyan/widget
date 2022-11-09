@@ -853,29 +853,20 @@ chatEl.addEventListener("scroll", (e) => {
 });
 
 const scrollBarInit = (height) => {
-  const supportMessages = document.querySelectorAll(
-    ".message-from-box"
-  );
-  supportMessages.forEach((el) => {
-    el.parentElement.style.marginLeft =
-      document.querySelector(
-        ".widget .widget-tab_online_chat-body"
-      ).clientWidth -
-      parseFloat(
-        window.getComputedStyle(el.parentElement).width
-      ) -
-      40 +
-      "px";
-  });
-
   if (topP <= 0) {
     scrollBarEl.style.opacity = 0;
   } else {
     scrollBarEl.style.opacity = 1;
   }
 
+  console.log(widgetChatEl.children[0].children.length * 5);
+
   const value = height + "px";
   scrollBarEl.style.height = value;
+  circleEl.style.height =
+    height /
+      (widgetChatEl.children[0].children.length * 0.3) +
+    "px";
   inputEl.style.height = value;
   inputEl.style.width = value;
   updateCoefficient();
@@ -912,19 +903,24 @@ const widgetChatEl = document.querySelector(
   "#widget-tab_online_chat-messager"
 );
 const widgetMapsEl = document.querySelector(
-  ".widget-tab_yandex_map-body"
+  ".widget-tab_yandex_map-body_info-list"
 );
 const widgetEl = document.querySelector(".widget");
-const mapEl = document.querySelector(
-  ".widget-tab_yandex_map-body-maps iframe"
+const filesSelectedEl = document.querySelector(
+  ".widget .widget-tab_online_chat-file_info"
 );
-widgetEl.addEventListener("wheel", (e) => {
+
+const userWidgetUsingChecker = (event) => {
   // родители классов, которые должны прокручиваться
   // если адреса на виджете должны прокручиваться, то
   // необходимо items добавить в общий родитель и добавить
   // свойство overflow, и в mapEl изменить на класс родителя
-  const targetClassArray = [widgetChatEl, widgetMapsEl];
-  let target = e.target;
+  const targetClassArray = [
+    widgetChatEl,
+    widgetMapsEl,
+    filesSelectedEl,
+  ];
+  let target = event.target;
   while (
     target !== widgetEl &&
     !targetClassArray.includes(target)
@@ -932,33 +928,21 @@ widgetEl.addEventListener("wheel", (e) => {
     target = target.parentElement;
   }
   if (
-    e.deltaY >= 0
+    event.deltaY >= 0
       ? target.scrollTop + target.clientHeight >=
         target.scrollHeight
-      : e.deltaY < 0 && target.scrollTop == 0
+      : event.deltaY < 0 && target.scrollTop == 0
   ) {
-    e.preventDefault();
+    event.preventDefault();
   }
+};
+widgetEl.addEventListener("wheel", (e) => {
+  userWidgetUsingChecker(e);
 });
 
 widgetEl.addEventListener("touchmove", function (e) {
   document.body.style.overflow = "hidden";
-  const targetClassArray = [widgetChatEl, widgetMapsEl];
-  let target = e.target;
-  while (
-    target !== widgetEl &&
-    !targetClassArray.includes(target)
-  ) {
-    target = target.parentElement;
-  }
-  if (
-    e.deltaY >= 0
-      ? target.scrollTop + target.clientHeight >=
-        target.scrollHeight
-      : e.deltaY < 0 && target.scrollTop == 0
-  ) {
-    e.preventDefault();
-  }
+  userWidgetUsingChecker(e);
 });
 
 widgetEl.addEventListener("touchend", function (e) {
