@@ -755,7 +755,7 @@ function heightFilesChecker() {
       widget_tab_online_chat_file_info.style.height =
         "auto";
     }
-  }, 10);
+  }, 80);
 }
 
 function deleteFiles(id) {
