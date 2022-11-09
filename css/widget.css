@@ -5,7 +5,6 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
 }
 
 .scroll_hidden {
@@ -84,20 +83,26 @@
   white-space: normal;
   width: auto;
   z-index: auto;
-
   -ms-scroll-chaining: none;
   overscroll-behavior: none;
-  scrollbar-gutter: hidden;
+  scrollbar-color: #3581fc #b1e3fa; /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-width: 6px;
 }
 
 .widget *::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  opacity: 0;
+  width: 6px;
+}
+
+.widget *::-webkit-scrollbar-track {
+  background-color: #b1e3fa;
+}
+
+.widget *::-webkit-scrollbar-thumb {
+  background-color: #3581fc;
+  border-radius: 4px;
 }
 
 .widget {
-  opacity: 0.8;
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -769,30 +774,27 @@
   padding: 15px;
   bottom: 90px;
   left: 20px;
+  scrollbar-color: #3581fc #b1e3fa;
+  scrollbar-width: 6px;
 }
 
 .widget
   .widget-tab_online_chat-body
   .widget-tab_online_chat-file_info::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 .widget
   .widget-tab_online_chat-body
   .widget-tab_online_chat-file_info::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #b1e3fa;
 }
 
 .widget
   .widget-tab_online_chat-body
   .widget-tab_online_chat-file_info::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-.widget
-  .widget-tab_online_chat-body
-  .widget-tab_online_chat-file_info::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #3581fc;
+  border-radius: 4px;
 }
 
 .widget #widget-tab_online_chat-file_info-delete {
@@ -956,15 +958,8 @@
   color: #6e7191;
 }
 
-.widget
-  .widget-tab_online_chat-messager::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  opacity: 0;
-}
-
 .widget .widget-tab_online_chat-messager {
-  width: 100%;
+  width: calc(100% + 20px);
   -ms-scroll-chaining: none;
   overscroll-behavior: none;
   display: -webkit-box;
@@ -977,10 +972,9 @@
   min-height: 330px;
   max-height: 330px;
   margin-bottom: 10px;
+  margin-top: 40px;
   overflow-y: auto;
-  position: absolute;
-  left: 20px;
-  top: 45px;
+  padding-right: 20px;
 }
 .widget .widget-tab_online_chat-messager:last-of-type {
   margin-bottom: 0;
@@ -997,59 +991,8 @@
 .widget
   .widget-tab_online_chat-messager
   .widget-tab_online_chat-message {
-  width: calc(100% - 40px);
-  transition: none;
-}
-
-.widget .widget-tab-chat_scroll-bar {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  z-index: 2;
-  opacity: 0;
-  height: 330px;
-  min-width: 6px;
-  background-color: #b1e3fa;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  transition: all 0.1s;
-  border-radius: 5px;
-}
-.widget .widget-tab-chat_scroll-bar_range {
-  height: 330px;
-  width: 330px;
-  position: absolute;
-  display: block;
-  opacity: 0;
-  padding: 0;
-  margin: 0;
-  z-index: 3;
-  transform: rotate(90deg) translateY(50%);
-  cursor: pointer;
-}
-.widget-tab-chat_scroll-bar_circle {
   width: 100%;
-  height: 25%;
-  min-height: 60px;
-  max-height: 200px;
-  background-color: #3581fc;
-  border-radius: 5px;
-  transition: all 0.08s;
-}
-
-.widget .widget-tab_online_chat-message p {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #131313;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  word-break: break-all;
-  text-align: left;
+  transition: all 0.1s;
 }
 
 .widget .widget-tab_online_chat-message img {
@@ -1058,7 +1001,7 @@
 }
 
 .widget .widget-tab_online_chat-message .message-from-box {
-  max-width: 80%;
+  max-width: 90%;
   display: block;
   float: left;
   background: #dbecf4;
@@ -1068,20 +1011,12 @@
 }
 
 .widget .widget-tab_online_chat-message .message-to-box {
-  max-width: 80%;
-  display: block;
+  max-width: 90%;
   float: right;
   background: #ffe7b9;
   border-radius: 10px 10px 0px 10px;
   padding: 12.5px;
   margin: 7.5px 0;
-  transition: all 0.2s;
-}
-
-.widget
-  .widget-tab_online_chat-message:last-of-type
-  > sbtnw {
-  margin: 7.5px 0 0;
 }
 
 .widget
@@ -1098,14 +1033,6 @@
   font-size: 17px !important;
 }
 
-.widget .widget-tab_yandex_map-body_info-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  height: calc(408px - 270px);
-}
 .widget .widget-tab_yandex-map {
   display: none;
   width: 408px;
@@ -1122,9 +1049,9 @@
   width: 60px;
 }
 
-.widget-tab_yandex_map-body-maps iframe {
+.widget .widget-tab_yandex_map-body-maps iframe {
   width: 100%;
-  height: 340px;
+  min-height: 340px;
   padding: 0 30px;
 }
 
@@ -1267,19 +1194,16 @@
 @media only screen and (max-width: 500px) {
   .widget {
     width: 100%;
-    overflow-y: hidden;
     right: 0;
   }
 
   .widget .widget-tabs {
     border-radius: 0 !important;
-    min-height: 0 !important;
+    min-height: 2500px !important;
     right: 0 !important;
     top: 0 !important;
     bottom: 0 !important;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
   }
 
   .widget .widget-open_button {
@@ -1292,10 +1216,6 @@
   .widget .widget-open_button button img {
     width: 30px;
     height: 31px;
-  }
-
-  .widget .widget-tab_yandex_map-body_info-list {
-    height: calc(100% - 420px);
   }
 
   .widget .widget-tab_index {

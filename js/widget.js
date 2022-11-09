@@ -1,3 +1,4 @@
+"use-strict";
 let widget_index_tab = document.getElementById(
   "widget-tab_index"
 );
@@ -252,9 +253,6 @@ widgetButton_online_chat_button.addEventListener(
   function () {
     flexController(widget_index_tab, "none");
     flexController(widgetTab_online_chat_button, "flex");
-    scrollBarInit(
-      parseFloat(window.getComputedStyle(chatEl).height)
-    );
   }
 );
 
@@ -286,9 +284,6 @@ const widget_tab_online_chat_messager_body =
 
 online_chat_form.addEventListener("submit", function (e) {
   e.preventDefault();
-  scrollBarInit(
-    parseFloat(window.getComputedStyle(chatEl).height)
-  );
   let message = this.elements["message"];
   console.log(message.value);
   let file = this.elements["file"];
@@ -508,9 +503,6 @@ online_chat_form.addEventListener("submit", function (e) {
       behavior: "smooth",
       top: widget_tab_online_chat_messager.scrollHeight,
     });
-    scrollBarInit(
-      parseFloat(window.getComputedStyle(chatEl).height)
-    );
   }, 100);
   flexController(widget_tab_online_chat_smile_box, "none");
   widget_tab_online_chat_smile_box_open = false;
@@ -817,100 +809,17 @@ function online_chat_add_smile(smile) {
   check_widget_tab_online_chat_message_input();
 }
 
-// CUSTOM SCROLLBAR
-// widget_tab_online_chat_messager
-
-const inputEl = document.querySelector(
-  ".widget .widget-tab-chat_scroll-bar_range"
-);
-const circleEl = document.querySelector(
-  ".widget-tab-chat_scroll-bar_circle"
-);
-const scrollBarEl = document.querySelector(
-  ".widget .widget-tab-chat_scroll-bar"
-);
-const chatEl = widget_tab_online_chat_messager;
-const chatBodyEl =
-  widget_tab_online_chat_messager.querySelector(
-    ".widget .widget-tab_online_chat-messager_body"
-  );
-const messageEl = document.querySelector(
-  ".widget .widget-tab_online_chat-message"
-);
-let topK = 0;
-let topP = 0;
-inputEl.addEventListener("input", (e) => {
-  chatEl.scrollTop = (topP / 100) * inputEl.value;
-  circleEl.style.marginTop = topK * inputEl.value + "px";
-});
-
-chatEl.addEventListener("scroll", (e) => {
-  scrollBarInit(
-    parseFloat(window.getComputedStyle(chatEl).height)
-  );
-  inputEl.value = (chatEl.scrollTop / topP) * 100;
-  circleEl.style.marginTop = topK * inputEl.value + "px";
-});
-
-const scrollBarInit = (height) => {
-  if (topP <= 0) {
-    scrollBarEl.style.opacity = 0;
-  } else {
-    scrollBarEl.style.opacity = 1;
-  }
-
-  console.log(widgetChatEl.children[0].children.length * 5);
-
-  const value = height + "px";
-  scrollBarEl.style.height = value;
-  circleEl.style.height =
-    height /
-      (widgetChatEl.children[0].children.length * 0.3) +
-    "px";
-  inputEl.style.height = value;
-  inputEl.style.width = value;
-  updateCoefficient();
-};
-
-const updateCoefficient = () => {
-  topK =
-    (parseFloat(
-      window.getComputedStyle(scrollBarEl).height
-    ) -
-      parseFloat(
-        window.getComputedStyle(circleEl).height
-      )) /
-    100;
-  topP =
-    parseFloat(window.getComputedStyle(chatBodyEl).height) +
-    parseFloat(
-      window.getComputedStyle(chatBodyEl).marginTop
-    ) +
-    parseFloat(
-      window.getComputedStyle(chatBodyEl).marginBottom
-    ) -
-    chatEl.clientHeight;
-};
-
-window.addEventListener("resize", () => {
-  windowOrientationChecker();
-  scrollBarInit(
-    parseFloat(window.getComputedStyle(chatEl).height)
-  );
-});
-
 const widgetChatEl = document.querySelector(
   "#widget-tab_online_chat-messager"
 );
 const widgetMapsEl = document.querySelector(
-  ".widget-tab_yandex_map-body_info-list"
+  ".widget-tab_yandex_map-body"
+);
+const filesChatEl = document.querySelector(
+  ".widget-tab_online_chat-file_info"
 );
 const widgetEl = document.querySelector(".widget");
-const filesSelectedEl = document.querySelector(
-  ".widget .widget-tab_online_chat-file_info"
-);
-
-const userWidgetUsingChecker = (event) => {
+widgetEl.addEventListener("wheel", (e) => {
   // родители классов, которые должны прокручиваться
   // если адреса на виджете должны прокручиваться, то
   // необходимо items добавить в общий родитель и добавить
@@ -918,9 +827,9 @@ const userWidgetUsingChecker = (event) => {
   const targetClassArray = [
     widgetChatEl,
     widgetMapsEl,
-    filesSelectedEl,
+    filesChatEl,
   ];
-  let target = event.target;
+  let target = e.target;
   while (
     target !== widgetEl &&
     !targetClassArray.includes(target)
@@ -928,34 +837,11 @@ const userWidgetUsingChecker = (event) => {
     target = target.parentElement;
   }
   if (
-    event.deltaY >= 0
+    e.deltaY >= 0
       ? target.scrollTop + target.clientHeight >=
         target.scrollHeight
-      : event.deltaY < 0 && target.scrollTop == 0
+      : e.deltaY < 0 && target.scrollTop == 0
   ) {
-    event.preventDefault();
+    e.preventDefault();
   }
-};
-widgetEl.addEventListener("wheel", (e) => {
-  userWidgetUsingChecker(e);
 });
-
-widgetEl.addEventListener("touchmove", function (e) {
-  document.body.style.overflow = "hidden";
-  userWidgetUsingChecker(e);
-});
-
-widgetEl.addEventListener("touchend", function (e) {
-  document.body.style.overflow = "auto";
-});
-
-document.addEventListener(
-  "touchmove",
-  function (event) {
-    event = event.originalEvent || event;
-    if (event.scale !== 1) {
-      event.preventDefault();
-    }
-  },
-  false
-);
