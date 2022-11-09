@@ -940,16 +940,16 @@ widgetEl.addEventListener("wheel", (e) => {
   userWidgetUsingChecker(e);
 });
 
-widgetEl.addEventListener("touchmove", function (e) {
-  document.body.style.overflow = "hidden";
-  userWidgetUsingChecker(e);
-});
+// widgetEl.addEventListener("touchmove", function (e) {
+//   document.body.style.overflow = "hidden";
+//   userWidgetUsingChecker(e);
+// });
 
-widgetEl.addEventListener("touchend", function (e) {
-  document.body.style.overflow = "auto";
-});
+// widgetEl.addEventListener("touchend", function (e) {
+//   document.body.style.overflow = "auto";
+// });
 
-document.addEventListener(
+chatBodyEl.addEventListener(
   "touchmove",
   function (event) {
     event = event.originalEvent || event;
