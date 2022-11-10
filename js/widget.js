@@ -509,6 +509,7 @@ online_chat_form.addEventListener("submit", function (e) {
           ).scrollHeight,
         });
       });
+    heightFilesChecker();
   }, 100);
   flexController(widget_tab_online_chat_smile_box, "none");
   widget_tab_online_chat_smile_box_open = false;
@@ -755,7 +756,7 @@ function heightFilesChecker() {
       widget_tab_online_chat_file_info.style.height =
         "auto";
     }
-  }, 80);
+  }, 10);
 }
 
 function deleteFiles(id) {
