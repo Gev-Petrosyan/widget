@@ -881,3 +881,49 @@ widgetEl.addEventListener("wheel", (e) => {
     e.preventDefault();
   }
 });
+
+widgetEl.addEventListener("touchmove", (e) => {
+  // родители классов, которые должны прокручиваться
+  // если адреса на виджете должны прокручиваться, то
+  // необходимо items добавить в общий родитель и добавить
+  // свойство overflow, и в mapEl изменить на класс родителя
+  if (window.innerWidth <= 500) {
+    document.body.style.overflow = "hidden";
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+  }
+  const targetClassArray = [
+    ...document.querySelectorAll(
+      ".simplebar-content-wrapper"
+    ),
+    widgetMapsEl,
+    filesChatEl,
+  ];
+  let target = e.target;
+  while (
+    target !== widgetEl &&
+    !targetClassArray.includes(target)
+  ) {
+    target = target.parentElement;
+  }
+  if (
+    e.deltaY > 0
+      ? target.scrollTop + target.clientHeight >
+        target.scrollHeight
+      : e.deltaY < 0 && target.scrollTop == 0
+  ) {
+    e.preventDefault();
+  }
+});
+
+widgetEl.addEventListener("touchend", () => {
+  if (window.innerWidth <= 500) {
+    document.body.style.overflow = "auto";
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+  }
+});
